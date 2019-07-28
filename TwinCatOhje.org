@@ -6,10 +6,13 @@ automaatiojärjestelmien ydin.
 
 Se on PC-pohjainen ohjelmisto, joka muuttaa minkä tahansaPC:n tehokkaaksi automaatiojärjestelmien ohjaimeksi.
 
-TwinCat 3 on uusin versio
+TwinCat 3 on ohjelmiston uusin versio, jonka avulla automaatiohjelmointia
+voidaan tehdä IEC 61131-3 standardin mukaisten kielten lisäksi C ja C++
+ohjelmointikielillä. Twincat 3 on rakennettu Microsoftin Visual Studio
+ohjelmointiympäristön päälle.
 * Asennus ja ensimmäinen käynnistys
+** Vaatimukset
 ** Lisenssi
-
 ** Virtuaalikoneet
 ** Core isolation
 * PLC projektin
@@ -34,3 +37,6 @@ TwinCat 3 on uusin versio
 | Häh | Jotain        | Ehkä  |
 |     |               |       |
 |     |               |       |
+
+* Lähteet
+** https://download.beckhoff.com/download/document/catalog/TwinCAT_3_Booklet.pdf
