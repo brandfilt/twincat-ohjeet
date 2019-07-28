@@ -1,0 +1,36 @@
+#+TITLE: TwinCat 3 Asennus ja käyttöönotto
+#+STARTUP: showall
+* Mikä TwinCat?
+TwinCat (The Windows Control and Automation Technology) on Beckhoffin
+automaatiojärjestelmien ydin.
+
+Se on PC-pohjainen ohjelmisto, joka muuttaa minkä tahansaPC:n tehokkaaksi automaatiojärjestelmien ohjaimeksi.
+
+TwinCat 3 on uusin versio
+* Asennus ja ensimmäinen käynnistys
+** Lisenssi
+
+** Virtuaalikoneet
+** Core isolation
+* PLC projektin
+** Asetukset
+** PLC projekti
+*** Ohjelmointitavat
+** Globaalit muuttujat
+** Projektin ajaminen TwinCat runtimella
+** Ohjelman debuggaus ajon aikana
+** I/O mäppäys
+*** EtherCat laitteiden lisääminen
+*** Terminaalimoduulien lisääminen
+* HMI käyttöliittymä
+** Eri toteutustavat
+** Web toteutuksen vaiheet
+** UI mäppäys muuttujiin
+* Etäyhteys koulun laitteistoon
+
+|-----+---------------+-------|
+| CPU | Arkkitehtuuri | Muuta |
+|-----+---------------+-------|
+| Häh | Jotain        | Ehkä  |
+|     |               |       |
+|     |               |       |
