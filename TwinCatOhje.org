@@ -12,7 +12,12 @@ ohjelmointikielillä. Twincat 3 on rakennettu Microsoftin Visual Studio
 ohjelmointiympäristön päälle.
 * Asennus ja ensimmäinen käynnistys
 ** Vaatimukset
+*** Windows XP tai uudempi
+*** CPU 1.6Ghz
+*** 2GB RAM
+*** 3GB kiintolevytilaa
 ** Lisenssi
+*** TwinCat 3 lisenssi on täysin ilmainen mutta sen lisenssi on luotava uudelleen 7 päivän välein.
 ** Virtuaalikoneet
 ** Core isolation
 * PLC projektin
