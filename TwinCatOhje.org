@@ -17,9 +17,14 @@ ohjelmointiympäristön päälle.
 *** 2GB RAM
 *** 3GB kiintolevytilaa
 ** Lisenssi
-*** TwinCat 3 lisenssi on täysin ilmainen mutta sen lisenssi on luotava uudelleen 7 päivän välein.
+TwinCat 3 lisenssi on täysin ilmainen mutta sen lisenssi on luotava uudelleen 7
+päivän välein.
 ** Virtuaalikoneet
+Koska TwinCat ajaa PLC emulaatiota PC:llä saattaa se aiheuttaa ongelmia,
+jos samaan aikaan on käytössä muita virtuaalikoineita. TwinCat projektia ei
+esimerkiksi pysty asettamaan Run-moodiin, jos samaan aikaan PC:llä on käynnissä VirtualBox.
 ** Core isolation
+TwinCat projekti
 * PLC projektin
 ** Asetukset
 ** PLC projekti
