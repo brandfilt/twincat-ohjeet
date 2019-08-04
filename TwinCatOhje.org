@@ -12,20 +12,40 @@ ohjelmointikielillä. Twincat 3 on rakennettu Microsoftin Visual Studio
 ohjelmointiympäristön päälle.
 * Asennus ja ensimmäinen käynnistys
 ** Vaatimukset
-*** Windows XP tai uudempi
-*** CPU 1.6Ghz
-*** 2GB RAM
-*** 3GB kiintolevytilaa
+- Windows XP tai uudempi
+- Prosessori 1.6Ghz
+- 2GB RAM
+- 3GB kiintolevytilaa
 ** Lisenssi
 TwinCat 3 lisenssi on täysin ilmainen mutta sen lisenssi on luotava uudelleen 7
-päivän välein.
+päivän välein. Lisenssin aktivointi tapahtuu projektin SYSTEM kohdan alla
+olevasta License kohdasta.
+#+ATTR_HTML: width="300"
+#+ATTR_ORG: :width 300
+[[file:Lisenssi01.png]]
+Kehityskoneen lisenssin voi aktivoida klikkaamalla "Activate 7 Days Trial
+License..." ja täyttämällä turvallisuus koodin.
 ** Virtuaalikoneet
 Koska TwinCat ajaa PLC emulaatiota PC:llä saattaa se aiheuttaa ongelmia,
-jos samaan aikaan on käytössä muita virtuaalikoineita. TwinCat projektia ei
+jos samaan aikaan on käytössä muita virtuaalikoineita. TwinCat projektia ei tässä
 esimerkiksi pysty asettamaan Run-moodiin, jos samaan aikaan PC:llä on käynnissä VirtualBox.
 ** Core isolation
-TwinCat projekti
-* PLC projektin
+TwinCat projekti voidaan ajaa eristettynä yhdellä prosessorin ytimellä Core
+Isolation ominaisuuden avulla. Core Isolation löytyy projektin SYSTEM osion alta.
+* PLC projektin aloittaminen
+** Uusi projekti
+Uusi PLC projekti aloitetaan valitsemalla Visual Studio File valikosta New
+Project.
+
+#+ATTR_HTML: width="300"
+#+ATTR_ORG: :width 300
+[[file:UusiProjekti01.png]]
+Sen jälkeen valitaan Template valikosta TwinCAT PLC, annetaan
+projektille nimi ja sijainti ja luodaan projekti klikkaamalla OK.
+
+#+ATTR_HTML: width="300"
+#+ATTR_ORG: :width 300
+[[file:UusiProjekti02.png]]
 ** Asetukset
 ** PLC projekti
 *** Ohjelmointitavat
