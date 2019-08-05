@@ -18,7 +18,7 @@ ohjelmointiympäristön päälle.
 - 3GB kiintolevytilaa
 ** Lisenssi
 TwinCat 3 lisenssi on täysin ilmainen mutta sen lisenssi on luotava uudelleen 7
-päivän välein. Lisenssin aktivointi tapahtuu projektin SYSTEM kohdan alla
+päivän välein. Lisenssin aktivointi tapahtuu TwinCat projektin SYSTEM kohdan alla
 olevasta License kohdasta.
 #+ATTR_HTML: width="300"
 #+ATTR_ORG: :width 300
@@ -39,15 +39,28 @@ Project.
 
 #+ATTR_HTML: width="300"
 #+ATTR_ORG: :width 300
-[[file:UusiProjekti01.png]]
-Sen jälkeen valitaan Template valikosta TwinCAT PLC, annetaan
+[[file:kuvat/UusiProjekti01.png]]
+Sen jälkeen valitaan Template valikosta TwinCAT Project XAE, annetaan
 projektille nimi ja sijainti ja luodaan projekti klikkaamalla OK.
 
 #+ATTR_HTML: width="300"
 #+ATTR_ORG: :width 300
-[[file:UusiProjekti02.png]]
+[[file:kuvat/UusiProjekti03.png]]
 ** Asetukset
+Ennen kuin aletaan ohjelmoimaan, kannatta projektin asetukset ja lisenssi käydä lävitse.
 ** PLC projekti
+Nyt kun TwinCat projekti on luotu, täytyy siihen vielä lisästä PLC projekti,
+jotta päästään ohjelmoimaan. Tämä tapahtuu klikkaamalla hiiren oikealla
+puunäkymän kohtaa PLC, ja valitsemalla Add New Item.
+[[file:kuvat/LisaaPLCProjekti01.png]]
+
+Avautuvast ikkunasta valitaan projektityypiksi Standard PLC Project, annetaan projektille nimi ja
+klikataan OK.
+[[file:kuvat/PLCProjekti02.png]]
+
+Projektin puunäkymään PLC-kohdan alle ilmestyy luotu projekti tiedostoineen.
+[[file:kuvat/PLCProjektiSisalto01.png]]
+*** Kansiorakenne
 *** Ohjelmointitavat
 ** Globaalit muuttujat
 ** Projektin ajaminen TwinCat runtimella
