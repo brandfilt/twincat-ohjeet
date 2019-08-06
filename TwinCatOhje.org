@@ -61,7 +61,16 @@ klikataan OK.
 Projektin puunäkymään PLC-kohdan alle ilmestyy luotu projekti tiedostoineen.
 [[file:kuvat/PLCProjektiSisalto01.png]]
 *** Kansiorakenne
+- GVL
+  Globaalien muuttujien määrittely. Möyhemmin näihin
+  voidaan mäpätä tulot ja lähdöt.
+- POU
+  Ohjelmat joita PLCllä ajetaan.
 *** Ohjelmointitavat
+TwinCat 3 tukee kaikkia IEC 61131-3 standardin mukaisia ohjelmointimenetelmiä,
+eli LD (Ladder diagram), FBD (Function Block Diagram), ST (Structured Text), IL
+(Instruction List) ja SFC (Sequanteial Function Chart). Tässä ohjeessa käydään
+läpi lyhyesti LD, FBD ja ST ohjelmointimenetelmien käyttö TwinCat 3:ssa.
 ** Globaalit muuttujat
 ** Projektin ajaminen TwinCat runtimella
 ** Ohjelman debuggaus ajon aikana
