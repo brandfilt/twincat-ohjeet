@@ -1,4 +1,4 @@
-#+TITLE: TwinCat 3 Asennus ja käyttöönotto
+#+TITLE: TwinCat 3 Opas
 #+STARTUP: showall
 * Mikä TwinCat?
 TwinCat (The Windows Control and Automation Technology) on Beckhoffin
@@ -32,13 +32,13 @@ esimerkiksi pysty asettamaan Run-moodiin, jos samaan aikaan PC:llä on käynniss
 ** Core isolation
 TwinCat projekti voidaan ajaa eristettynä yhdellä prosessorin ytimellä Core
 Isolation ominaisuuden avulla. Core Isolation löytyy projektin SYSTEM osion alta.
-* PLC projektin aloittaminen
+* Ensimmäinen PLC projekti
 ** Uusi projekti
 Uusi PLC projekti aloitetaan valitsemalla Visual Studio File valikosta New
 Project.
 
-#+ATTR_HTML: width="300"
-#+ATTR_ORG: :width 300
+#+ATTR_HTML: :width="300px"
+#+ATTR_ORG: :width 50
 [[file:kuvat/UusiProjekti01.png]]
 Sen jälkeen valitaan Template valikosta TwinCAT Project XAE, annetaan
 projektille nimi ja sijainti ja luodaan projekti klikkaamalla OK.
@@ -61,18 +61,27 @@ klikataan OK.
 Projektin puunäkymään PLC-kohdan alle ilmestyy luotu projekti tiedostoineen.
 [[file:kuvat/PLCProjektiSisalto01.png]]
 *** Kansiorakenne
+- External Types
+- References
+- DUTs
 - GVL
   Globaalien muuttujien määrittely. Möyhemmin näihin
   voidaan mäpätä tulot ja lähdöt.
 - POU
   Ohjelmat joita PLCllä ajetaan.
-*** Ohjelmointitavat
+- VISUs
+*** Ohjelmointi
 TwinCat 3 tukee kaikkia IEC 61131-3 standardin mukaisia ohjelmointimenetelmiä,
 eli LD (Ladder diagram), FBD (Function Block Diagram), ST (Structured Text), IL
 (Instruction List) ja SFC (Sequanteial Function Chart). Tässä ohjeessa käydään
 läpi lyhyesti LD, FBD ja ST ohjelmointimenetelmien käyttö TwinCat 3:ssa.
+**** Ladder diagram -ohjelmointi
+**** Fuction Block Diagram -ohjelmointi
+**** Structured Text -ohjelmointi
 ** Globaalit muuttujat
+Glo
 ** Projektin ajaminen TwinCat runtimella
+- Aktivoi konfiguraatio
 ** Ohjelman debuggaus ajon aikana
 ** I/O mäppäys
 *** EtherCat laitteiden lisääminen
