@@ -79,7 +79,10 @@ läpi lyhyesti LD, FBD ja ST ohjelmointimenetelmien käyttö TwinCat 3:ssa.
 **** Fuction Block Diagram -ohjelmointi
 **** Structured Text -ohjelmointi
 ** Globaalit muuttujat
-Glo
+Globaalien muuttujien avulla tulot ja lähdöt saadaan helposti liitettyä
+ohjelmissa käytettäviin muuttujiin. Muuttujien määrittely onnistuu lisäämällä
+GVL kansioon lista joka sisältää halutut muuttuja. Eri muuttujatyyppejä ovat mm.
+BOOL, INT, UINT, REAL, TIME, DATE, ARRAY jne.
 ** Projektin ajaminen TwinCat runtimella
 - Aktivoi konfiguraatio
 ** Ohjelman debuggaus ajon aikana
