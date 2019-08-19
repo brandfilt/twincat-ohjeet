@@ -1,4 +1,4 @@
-#+TITLE: TwinCat 3 Opas
+#+TITLE: TwinCat 3 Opas, perusteet
 #+STARTUP: showall
 * Mikä TwinCat?
 TwinCat (The Windows Control and Automation Technology) on Beckhoffin
@@ -86,6 +86,7 @@ BOOL, INT, UINT, REAL, TIME, DATE, ARRAY jne.
 ** Projektin ajaminen TwinCat runtimella
 - Aktivoi konfiguraatio
 ** Ohjelman debuggaus ajon aikana
+- PLC ohjelmaa ja muuttujien arvoja voidaan tarkastella ja muuttaa ajon aikana.
 ** I/O mäppäys
 *** EtherCat laitteiden lisääminen
 *** Terminaalimoduulien lisääminen
