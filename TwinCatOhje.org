@@ -81,9 +81,26 @@ läpi lyhyesti LD, FBD ja ST ohjelmointimenetelmien käyttö TwinCat 3:ssa.
 ** Globaalit muuttujat
 Globaalien muuttujien avulla tulot ja lähdöt saadaan helposti liitettyä
 ohjelmissa käytettäviin muuttujiin. Muuttujien määrittely onnistuu lisäämällä
-GVL kansioon lista joka sisältää halutut muuttuja. Eri muuttujatyyppejä ovat mm.
+GVL kansioon lista, joka sisältää halutut muuttuja. Eri muuttujatyyppejä ovat mm.
 BOOL, INT, UINT, REAL, TIME, DATE, ARRAY jne.
-** Projektin ajaminen TwinCat runtimella
+
+Varsinainen määrittely voidaan tehdä joko tekstipohjaisesti, taulukkona tai Auto Declare
+dialogin avulla. Teksti- ja taulukkopohjainen määrittely tehdään
+muuttujatiedoston muokkauksessa.
+
+Tekstipohjainen muuttujien määrittely tapahtuu formaatissa:
+    /muuttujanNimi/ : /tyyppi/;
+Esim.
+    muuttuja1 : BOOL;
+
+Muuttujaan voidaan määrittää myös rekisteriosoite, joka voidaan myöhemmin mapata johonkin
+fyysiseen tuloon tai lähtöön.
+    /muuttujanNimi/ AT %IX0.0 : /tyyppi/;
+
+Asettamalla osoitteen tilalle tähti (\*), mapataan osoite automaattisesti.
+    /muuttujanNimi/ AT %I\* : /tyyppi/;
+** Projektin simuloiminen TwinCat runtimella
+- Konfiguraation akit
 - Aktivoi konfiguraatio
 ** Ohjelman debuggaus ajon aikana
 - PLC ohjelmaa ja muuttujien arvoja voidaan tarkastella ja muuttaa ajon aikana.
