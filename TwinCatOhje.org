@@ -99,8 +99,11 @@ fyysiseen tuloon tai lähtöön.
 
 Asettamalla osoitteen tilalle tähti (\*), mapataan osoite automaattisesti.
     /muuttujanNimi/ AT %I\* : /tyyppi/;
+
+Muutujat voidaan linkittää johonkin lähtöön tai tuloon I/O valikon alta, kun
+laitteet on lisätty.
 ** Projektin simuloiminen TwinCat runtimella
-- Konfiguraation akit
+
 - Aktivoi konfiguraatio
 ** Ohjelman debuggaus ajon aikana
 - PLC ohjelmaa ja muuttujien arvoja voidaan tarkastella ja muuttaa ajon aikana.
