@@ -51,35 +51,56 @@ projektille nimi ja sijainti ja luodaan projekti klikkaamalla OK.
 #+ATTR_HTML: width="300"
 #+ATTR_ORG: :width 300
 [[file:kuvat/UusiProjekti03.png]]
-** Asetukset
-Ennen kuin aletaan ohjelmoimaan, kannatta projektin asetukset ja lisenssi käydä lävitse.
 ** PLC projekti
-Nyt kun TwinCat projekti on luotu, täytyy siihen vielä lisästä PLC projekti,
-jotta päästään ohjelmoimaan. Tämä tapahtuu klikkaamalla hiiren oikealla
+Kun TwinCat projekti on luotu, täytyy siihen vielä lisästä PLC projekti,
+jotta päästään ohjelmoimaan. TwinCatissä jokainen PLC projekti vastaa
+"virtuaalista" logiikkakontrolleria. PLC-projektin lisäys tapahtuu klikkaamalla hiiren oikealla
 puunäkymän kohtaa PLC, ja valitsemalla Add New Item.
 [[file:kuvat/LisaaPLCProjekti01.png]]
 
-Avautuvast ikkunasta valitaan projektityypiksi Standard PLC Project, annetaan projektille nimi ja
+Avautuvasta ikkunasta valitaan projektityypiksi Standard PLC Project, annetaan projektille nimi ja
 klikataan OK.
 [[file:kuvat/PLCProjekti02.png]]
 
 Projektin puunäkymään PLC-kohdan alle ilmestyy luotu projekti tiedostoineen.
 [[file:kuvat/PLCProjektiSisalto01.png]]
 *** Kansiorakenne
-- External Types
+PLC projektin alle luodaan automaattisesti kansiorakenne, joista tärkeimmät ovat:
 - References
+  Ulkoisten kirjastojen lisääminen.
 - DUTs
+  Data Unit Types, tietotyyppien määrittelyt.
 - GVL
-  Globaalien muuttujien määrittely. Möyhemmin näihin
-  voidaan mäpätä tulot ja lähdöt.
+  Globaalien muuttujien määrittely. Globaalit muuttujat ovat käytettävissä
+  kaikissa logiikkaohjelmissa ja käyttöliittymässä.
 - POU
-  Ohjelmat joita PLCllä ajetaan.
+  Program Organization Unit, sisältää logiikkaohjelmat ja niihin liittyvät
+  paikalliset muuttujat.
 - VISUs
-** Globaalit muuttujat
+  Käyttöliittymien määrittely ja luominen.
+
+* Ohjelmointi
+TwinCat 3 tukee kaikkia IEC 61131-3 standardin mukaisia ohjelmointimenetelmiä,
+eli LD (Ladder diagram), FBD (Function Block Diagram), ST (Structured Text), IL
+(Instruction List) ja SFC (Sequanteial Function Chart). Tässä ohjeessa käydään
+läpi lyhyesti LD, FBD ja ST ohjelmointimenetelmien käyttö TwinCat 3:ssa.
+** PLC ohjelman lisäys
+Kun projektiin lisää PLC projektin, luo TwinCat automaattisesti MAIN-ohjelman
+PLC-projektin kansioon POU.
+** Muuttujat
+Muuttujia voidaan TwinCatissä määrittää joko paikallisesti tai globaalisti.
+Paikalliset muuttujat ovat yhden logiikkaohjelman käytössä, eikä niiden arvoihin
+ole pääsyä muista ohjelmista. Globaaleja muuttujia voidaan käyttää kaikista
+PLC-projektin ohjelmista ja käyttöliittymistä. Globaalit muuttuja ovat myös
+mahdollista liittää johonkin fyysiseen tuloon tai lähtöön.
+
+Eri muuttujatyyppejä ovat mm. BOOL, INT, UINT, REAL, TIME, DATE, ARRAY jne.
+
+*** Ohjelman muuttujat
+*** Globaalit muuttujat
 Globaalien muuttujien avulla tulot ja lähdöt saadaan helposti liitettyä
 ohjelmissa käytettäviin muuttujiin. Muuttujien määrittely onnistuu lisäämällä
-GVL kansioon lista, joka sisältää halutut muuttuja. Eri muuttujatyyppejä ovat mm.
-BOOL, INT, UINT, REAL, TIME, DATE, ARRAY jne.
+GVL kansioon lista, joka sisältää halutut muuttuja.
 
 Varsinainen määrittely voidaan tehdä joko tekstipohjaisesti, taulukkona tai Auto Declare
 dialogin avulla. Teksti- ja taulukkopohjainen määrittely tehdään
@@ -114,14 +135,6 @@ Output rekisterit määritetään korvaamall I-kirjain Q:lla.
 #+BEGIN_SRC
     /muuttujanNimi/ AT %QX0.0 : /tyyppi/;
 #+END_SRC
-
-* Ohjelmointi
-TwinCat 3 tukee kaikkia IEC 61131-3 standardin mukaisia ohjelmointimenetelmiä,
-eli LD (Ladder diagram), FBD (Function Block Diagram), ST (Structured Text), IL
-(Instruction List) ja SFC (Sequanteial Function Chart). Tässä ohjeessa käydään
-läpi lyhyesti LD, FBD ja ST ohjelmointimenetelmien käyttö TwinCat 3:ssa.
-** PLC ohjelman lisäys
-** Muuttujien määrittäminen
 ** Ladder diagram -ohjelmointi
 ** Fuction Block Diagram -ohjelmointi
 ** Structured Text -ohjelmointi
@@ -152,6 +165,9 @@ läpi lyhyesti LD, FBD ja ST ohjelmointimenetelmien käyttö TwinCat 3:ssa.
 
 * Ongelmatilanteet
 
+* Ohjelman asetukset
+- Nopeuden säätö (cycle ticks jne.)
 
 * Lähteet
 ** https://download.beckhoff.com/download/document/catalog/TwinCAT_3_Booklet.pdf
+** http://www.contactandcoil.com/twincat-3-tutorial/quick-start/
