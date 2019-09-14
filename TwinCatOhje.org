@@ -24,7 +24,7 @@ olevasta License kohdasta.
 #+ATTR_ORG: :width 300
 [[file:Lisenssi01.png]]
 Kehityskoneen lisenssin voi aktivoida klikkaamalla "Activate 7 Days Trial
-License..." ja täyttämällä turvallisuus koodin.
+License..." ja täyttämällä kysytty koodi.
 ** Virtuaalikoneet
 Koska TwinCat ajaa PLC emulaatiota PC:llä saattaa se aiheuttaa ongelmia,
 jos samaan aikaan on käytössä muita virtuaalikoineita. TwinCat projektia ei tässä
@@ -43,18 +43,22 @@ Uusi PLC projekti aloitetaan valitsemalla Visual Studio File valikosta New
 Project.
 
 #+ATTR_HTML: :width="300px"
-#+ATTR_ORG: :width 50
+#+ATTR_ORG: :width 100
 [[file:kuvat/UusiProjekti01.png]]
+
 Sen jälkeen valitaan Template valikosta TwinCAT Project XAE, annetaan
 projektille nimi ja sijainti ja luodaan projekti klikkaamalla OK.
 
 #+ATTR_HTML: width="300"
-#+ATTR_ORG: :width 300
+#+ATTR_ORG :width 300
 [[file:kuvat/UusiProjekti03.png]]
 ** PLC projekti
 Kun TwinCat projekti on luotu, täytyy siihen vielä lisästä PLC projekti,
 jotta päästään ohjelmoimaan. TwinCatissä jokainen PLC projekti vastaa
-"virtuaalista" logiikkakontrolleria. PLC-projektin lisäys tapahtuu klikkaamalla hiiren oikealla
+"virtuaalista" logiikkakontrolleria. PLC-projekti sisältää ohjelmat, muuttujat
+ja käyttöliittymät jotka logiikalle ladataan.
+
+PLC-projektin lisäys tapahtuu klikkaamalla hiiren oikealla
 puunäkymän kohtaa PLC, ja valitsemalla Add New Item.
 [[file:kuvat/LisaaPLCProjekti01.png]]
 
@@ -82,11 +86,19 @@ PLC projektin alle luodaan automaattisesti kansiorakenne, joista tärkeimmät ov
 * Ohjelmointi
 TwinCat 3 tukee kaikkia IEC 61131-3 standardin mukaisia ohjelmointimenetelmiä,
 eli LD (Ladder diagram), FBD (Function Block Diagram), ST (Structured Text), IL
-(Instruction List) ja SFC (Sequanteial Function Chart). Tässä ohjeessa käydään
+(Instruction List) ja SFC (Sequential Function Chart). Tässä ohjeessa käydään
 läpi lyhyesti LD, FBD ja ST ohjelmointimenetelmien käyttö TwinCat 3:ssa.
 ** PLC ohjelman lisäys
 Kun projektiin lisää PLC projektin, luo TwinCat automaattisesti MAIN-ohjelman
-PLC-projektin kansioon POU.
+PLC-projektin kansioon POU. MAIN-ohjelma on ST-ohjelma, joka on oletuksena
+tyhjä. Yksinkertaisen ohjelman voi toteuttaa halutessaan suoraan
+MAIN-tiedostoon, mutta monimutkaisemmat logiikkaohjelmat kannattaa jakaa
+useampaan tiedostoon.
+
+POU-kansioon voidaan lisätä eri ohjelmointimenetelmillä
+toteutettuja ohjelmia eri klikkaamalla kansiota hiiren oikealla ja valitsemalla
+*Add New Item*. Avautuvasta ikkunasta voidaan valita ohjelmointimenetelmä ja
+antaa ohjelmalle nimi.
 ** Muuttujat
 Muuttujia voidaan TwinCatissä määrittää joko paikallisesti tai globaalisti.
 Paikalliset muuttujat ovat yhden logiikkaohjelman käytössä, eikä niiden arvoihin
@@ -97,6 +109,7 @@ mahdollista liittää johonkin fyysiseen tuloon tai lähtöön.
 Eri muuttujatyyppejä ovat mm. BOOL, INT, UINT, REAL, TIME, DATE, ARRAY jne.
 
 *** Ohjelman muuttujat
+Ohjelma
 *** Globaalit muuttujat
 Globaalien muuttujien avulla tulot ja lähdöt saadaan helposti liitettyä
 ohjelmissa käytettäviin muuttujiin. Muuttujien määrittely onnistuu lisäämällä
