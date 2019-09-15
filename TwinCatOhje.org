@@ -22,7 +22,7 @@ päivän välein. Lisenssin aktivointi tapahtuu TwinCat projektin SYSTEM kohdan 
 olevasta License kohdasta.
 #+ATTR_HTML: width="300"
 #+ATTR_ORG: :width 300
-[[file:Lisenssi01.png]]
+[[file:kuvat/Lisenssi01.png]]
 Kehityskoneen lisenssin voi aktivoida klikkaamalla "Activate 7 Days Trial
 License..." ja täyttämällä kysytty koodi.
 ** Virtuaalikoneet
@@ -87,7 +87,10 @@ PLC projektin alle luodaan automaattisesti kansiorakenne, joista tärkeimmät ov
 TwinCat 3 tukee kaikkia IEC 61131-3 standardin mukaisia ohjelmointimenetelmiä,
 eli LD (Ladder diagram), FBD (Function Block Diagram), ST (Structured Text), IL
 (Instruction List) ja SFC (Sequential Function Chart). Tässä ohjeessa käydään
-läpi lyhyesti LD, FBD ja ST ohjelmointimenetelmien käyttö TwinCat 3:ssa.
+läpi lyhyesti LD, FBD ja ST ohjelmointimenetelmien käyttö TwinCat 3:ssa. Näistä
+ST on tekstipohjainen ja muistuttaa eniten korkeamman tason ohjelmointikieliä
+kuten (PHP, Python tai C). ST on myös
+Beckhoffin suosittelema PLC ohjelmointitapa.
 ** PLC ohjelman lisäys
 Kun projektiin lisää PLC projektin, luo TwinCat automaattisesti MAIN-ohjelman
 PLC-projektin kansioon POU. MAIN-ohjelma on ST-ohjelma, joka on oletuksena
@@ -99,6 +102,8 @@ POU-kansioon voidaan lisätä eri ohjelmointimenetelmillä
 toteutettuja ohjelmia eri klikkaamalla kansiota hiiren oikealla ja valitsemalla
 *Add New Item*. Avautuvasta ikkunasta voidaan valita ohjelmointimenetelmä ja
 antaa ohjelmalle nimi.
+
+
 ** Muuttujat
 Muuttujia voidaan TwinCatissä määrittää joko paikallisesti tai globaalisti.
 Paikalliset muuttujat ovat yhden logiikkaohjelman käytössä, eikä niiden arvoihin
@@ -109,15 +114,10 @@ mahdollista liittää johonkin fyysiseen tuloon tai lähtöön.
 Eri muuttujatyyppejä ovat mm. BOOL, INT, UINT, REAL, TIME, DATE, ARRAY jne.
 
 *** Ohjelman muuttujat
-Ohjelma
-*** Globaalit muuttujat
-Globaalien muuttujien avulla tulot ja lähdöt saadaan helposti liitettyä
-ohjelmissa käytettäviin muuttujiin. Muuttujien määrittely onnistuu lisäämällä
-GVL kansioon lista, joka sisältää halutut muuttuja.
-
-Varsinainen määrittely voidaan tehdä joko tekstipohjaisesti, taulukkona tai Auto Declare
-dialogin avulla. Teksti- ja taulukkopohjainen määrittely tehdään
-muuttujatiedoston muokkauksessa.
+PLC-ohjelman muuttujat voidaan asettaa ohjelman muokkausikkunan yläosassa
+olevasta editorista.
+Määrittely voidaan tehdä joko tekstipohjaisesti, taulukkona tai Auto Declare
+ikkunan avulla.
 
 Tekstipohjainen muuttujien määrittely tapahtuu formaatissa:
 #+BEGIN_SRC
@@ -127,7 +127,15 @@ Esim.
 #+BEGIN_SRC
     muuttuja1 : BOOL;
 #+END_SRC
-Muuttujaan voidaan määrittää myös rekisteriosoite, joka voidaan myöhemmin mapata johonkin
+
+[[file:kuvat/Muuttujat01.png]]
+*** Globaalit muuttujat
+Globaalien muuttujien avulla tulot ja lähdöt saadaan helposti liitettyä
+ohjelmissa käytettäviin muuttujiin. Muuttujien määrittely onnistuu lisäämällä
+GVL kansioon lista, joka sisältää halutut muuttuja. Muuttujien lisäys listaan tapahtuu
+samalla tavalla kuin paikallisten muuttujien lisäys ohjelmiin.
+
+Muuttujaan voidaan määrittää myös erityinen rekisteriosoite, joka voidaan myöhemmin mapata johonkin
 fyysiseen tuloon tai lähtöön. Määrittäminen tapahtuu lisäämällä muuttujan nimen
 perään AT ja halutun rekisterin tyyppi ja osoite %-merkin jälkeen. Rekisterin
 tyyppi ja osoite erotetaan X-kirjaimella.
@@ -143,13 +151,18 @@ Asettamalla osoitteen tilalle tähti (*), mapataan osoite automaattisesti.
 #+END_SRC
 Muuttujat voidaan linkittää johonkin lähtöön tai tuloon I/O valikon alta, kun
 laitteet on lisätty.
+
 Output rekisterit määritetään korvaamall I-kirjain Q:lla.
 
 #+BEGIN_SRC
     /muuttujanNimi/ AT %QX0.0 : /tyyppi/;
 #+END_SRC
+
+Kun projekti käännetään muuttujien määrittämisen jälkeen (*Build Solution*),
+ilmestyy PLC-projektin alla olevaan virtuaaliseen logiikkaohjaimeen (*PLC
+Instance*) globaaleja muuttujia vastaavat lähdöt ja tulot.
 ** Ladder diagram -ohjelmointi
-** Fuction Block Diagram -ohjelmointi
+** Function Block Diagram -ohjelmointi
 ** Structured Text -ohjelmointi
 
 * Simulointi
