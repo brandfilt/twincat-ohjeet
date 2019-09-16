@@ -112,6 +112,7 @@ PLC-projektin ohjelmista ja käyttöliittymistä. Globaalit muuttuja ovat myös
 mahdollista liittää johonkin fyysiseen tuloon tai lähtöön.
 
 Eri muuttujatyyppejä ovat mm. BOOL, INT, UINT, REAL, TIME, DATE, ARRAY jne.
+Myös ajastimet ja triggerit määritetään muuttujina. Ajastimen tyypi on TON??
 
 *** Ohjelman muuttujat
 PLC-ohjelman muuttujat voidaan asettaa ohjelman muokkausikkunan yläosassa
@@ -162,8 +163,28 @@ Kun projekti käännetään muuttujien määrittämisen jälkeen (*Build Solutio
 ilmestyy PLC-projektin alla olevaan virtuaaliseen logiikkaohjaimeen (*PLC
 Instance*) globaaleja muuttujia vastaavat lähdöt ja tulot.
 ** Ladder diagram -ohjelmointi
+
 ** Function Block Diagram -ohjelmointi
 ** Structured Text -ohjelmointi
+ST-ohjelmointimenetelmä sisältää paljon samoja rakenteita kuin korkeamman tason
+ohjelmointikielet. Esimerkiksi kontrollirakenteet IF, FOR, WHILE ja CASE ovat
+käytössä myös ST-ohjelmoinnissa.
+
+ST-ohjelma lisätään samoin kuin muutkin ohjelmat, mutta valitaan tyypiksi ST.
+Ohjelman editorina on tekstialue johon ohjelmakoodin voi kirjoittaa.
+[[file:kuvat/ST01.png]]
+
+Esimerkki yksinkertaisesta ohjelmasta on ohjelma joka asettaa jonkin lähdön sen
+perusteella mitkä tulot ovat päällä.
+#+BEGIN_SRC
+    bMerkkivalo := bNappi AND bKytkinAsento1;
+#+END_SRC
+*bMerkkivalo* on globaali BOOL muuttuja joka on mapattu digitaalisen lähtöön.
+*bNappi* on globaali BOOL muuttuja, joka on mapattu digitaaliseen tuloon. *bKytkinAsento1*
+*on globaali BOOL muuttuja, joka on mapattu digitaaliseen tuloona.
+Tässä tapauksessa merkkivalo siis sytytetään kun kiertokytkin on asennossa 1 ja
+*nappia painetaan.
+
 
 * Simulointi
 ** Projektin simuloiminen TwinCat runtimella
@@ -197,3 +218,7 @@ Instance*) globaaleja muuttujia vastaavat lähdöt ja tulot.
 * Lähteet
 ** https://download.beckhoff.com/download/document/catalog/TwinCAT_3_Booklet.pdf
 ** http://www.contactandcoil.com/twincat-3-tutorial/quick-start/
+
+* Linkkejä
+** Structured Text -ohjelmointi
+https://www.plcacademy.com/structured-text-tutorial.pdf
