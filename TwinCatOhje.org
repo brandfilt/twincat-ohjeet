@@ -185,6 +185,11 @@ perusteella mitkä tulot ovat päällä.
 Tässä tapauksessa merkkivalo siis sytytetään kun kiertokytkin on asennossa 1 ja
 *nappia painetaan.
 
+Looppien (FOR, WHILE, REPEAT) käytössä on huomioitava, että PLC ohjelma
+itsessään on jo eräänlainen looppi, jota ajetaan asetuksiin määritetyllä
+skannausnopeudella. Välttämättä looppia ei tarvitse siis ohjelmoida, jos siihen
+ei ohjelmassa ole erityistä tarvetta.
+
 
 * Simulointi
 ** Projektin simuloiminen TwinCat runtimella
