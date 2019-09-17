@@ -103,6 +103,12 @@ toteutettuja ohjelmia eri klikkaamalla kansiota hiiren oikealla ja valitsemalla
 *Add New Item*. Avautuvasta ikkunasta voidaan valita ohjelmointimenetelmä ja
 antaa ohjelmalle nimi.
 
+Uudet ohjelmat eivät automaattisesti ole "käytössä" vaan ne pitää erikseen
+määritellä ajettavaksi. Tämä voidaan tehdä esimerkiksi suorittamalla uusi
+ohjelma MAIN-ohjelmasta käsin.
+#+BEGIN_SRC
+    UusiOhjelma();
+#+END_SRC
 
 ** Muuttujat
 Muuttujia voidaan TwinCatissä määrittää joko paikallisesti tai globaalisti.
@@ -163,7 +169,7 @@ Kun projekti käännetään muuttujien määrittämisen jälkeen (*Build Solutio
 ilmestyy PLC-projektin alla olevaan virtuaaliseen logiikkaohjaimeen (*PLC
 Instance*) globaaleja muuttujia vastaavat lähdöt ja tulot.
 ** Ladder diagram -ohjelmointi
-
+LD-ohjelmoi
 ** Function Block Diagram -ohjelmointi
 ** Structured Text -ohjelmointi
 ST-ohjelmointimenetelmä sisältää paljon samoja rakenteita kuin korkeamman tason
