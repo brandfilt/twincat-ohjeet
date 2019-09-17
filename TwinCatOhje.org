@@ -169,7 +169,13 @@ Kun projekti käännetään muuttujien määrittämisen jälkeen (*Build Solutio
 ilmestyy PLC-projektin alla olevaan virtuaaliseen logiikkaohjaimeen (*PLC
 Instance*) globaaleja muuttujia vastaavat lähdöt ja tulot.
 ** Ladder diagram -ohjelmointi
-LD-ohjelmoi
+LD-ohjelmointia varten lisätään PLC-projektiin uusi ohjelma, jonka tyypiksi
+määritetään *Ladder Diagram*.
+
+MAIN-ohjelmaan lisätään vielä komento, jolla ohjelma ajetaan.
+#+BEGIN_SRC
+    LDOhjelma();
+#+END_SRC
 ** Function Block Diagram -ohjelmointi
 ** Structured Text -ohjelmointi
 ST-ohjelmointimenetelmä sisältää paljon samoja rakenteita kuin korkeamman tason
@@ -180,7 +186,7 @@ ST-ohjelma lisätään samoin kuin muutkin ohjelmat, mutta valitaan tyypiksi ST.
 Ohjelman editorina on tekstialue johon ohjelmakoodin voi kirjoittaa.
 [[file:kuvat/ST01.png]]
 
-Esimerkki yksinkertaisesta ohjelmasta on ohjelma joka asettaa jonkin lähdön sen
+Esimerkki yksinkertaisesta ohjelmasta joka asettaa jonkin lähdön sen
 perusteella mitkä tulot ovat päällä.
 #+BEGIN_SRC
     bMerkkivalo := bNappi AND bKytkinAsento1;
@@ -191,10 +197,16 @@ perusteella mitkä tulot ovat päällä.
 Tässä tapauksessa merkkivalo siis sytytetään kun kiertokytkin on asennossa 1 ja
 *nappia painetaan.
 
+MAIN-ohjelmaan lisätään vielä komento, jolla ohjelma ajetaan.
+#+BEGIN_SRC
+    STOhjelma();
+#+END_SRC
+
 Looppien (FOR, WHILE, REPEAT) käytössä on huomioitava, että PLC ohjelma
 itsessään on jo eräänlainen looppi, jota ajetaan asetuksiin määritetyllä
-skannausnopeudella. Välttämättä looppia ei tarvitse siis ohjelmoida, jos siihen
-ei ohjelmassa ole erityistä tarvetta.
+skannausnopeudella. Looppaaminen odottaen jonkin tulon arvon muuttumista ei
+myöskään toimi, koska tällöin ohjelma jumiutuu looppin.
+
 
 
 * Simulointi
