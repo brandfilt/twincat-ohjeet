@@ -162,9 +162,11 @@ avulla. Ennen esimerkkien tekemistä tulisi määrittää globaalit *BOOL* muutt
 bMerkkivalo, bKiertokytkin1 ja bPainonappi GVL-tiedostoon.
 
 #+BEGIN_SRC
+VAR_GLOBAL
     bKiertokytkin1 AT %I* : BOOL;
     bPainonappi AT %I* : BOOL;
     bMerkivalo AT %Q* : BOOL;
+END_VAR
 #+END_SRC
 
 *bMerkkivalo* on globaali BOOL muuttuja joka on mapattu digitaalisen lähtöön.
@@ -176,28 +178,24 @@ LD-ohjelmointia varten lisätään PLC-projektiin uusi ohjelma, jonka tyypiksi
 *(Implementation language)*
 määritetään *Ladder Diagram*.
 
-
-Sovelluksen oikeaan reunaan avautuu *ToolBox*, jonka alta LD-ohjelmointiin
-käytettävät työkalut löytyvät. LD-komponentteja voidaan lisätä ohjelmaan
-raahaamalla niitä *ToolBox*-ikkunasta, ja tiputtamalla ne sopivaan kohtaan ohjelmassa.
+Sovelluksen oikeaan reunaan avautuu *ToolBox*, jonka alta LD-ohjelmointiin käytettävät työkalut löytyvät. LD-komponentteja voidaan lisätä ohjelmaan raahaamalla niitä *ToolBox*-ikkunasta, ja tiputtamalla ne sopivaan kohtaan
+ohjelmassa. Ensimmäistä komponenttia raahatessa, se pudotetaan *Start Here* -laatikkoon.
 
 [[file:kuvat/LDOhjelma01.png]]
-
-
 Tehdään yksinkertainen AND-ohjelma joka sytyttää merkkivalon kun kiertokytkin on
 asennossa 1, ja painonappia painetaan. Tätä varten tarvitaan kaksi
 *Contact*-komponenttia ja yksi *Coil*-komponentti.
 
 [[file:kuvat/LDOhjelma02.png]]
-
 Muuttujat liitetään komponentteihin kirjoittamalla muuttuja nimi komponentin
-vieressä olevaan pieneen laatikkoon, tai tuplaklikkaamalla laatikkoja, jolloin
-muuttujan voi valita listasta. Glob
+vieressä olevaan *???*-kenttään tai klikkaamalla sen vieressä olevaan laatikkoa, jolloin
+muuttujan voi valita listasta.
+[[file:kuvat/MuuttujanAsettaminen01.png]]
 
 Kun ohjelma on valmis, MAIN-ohjelmaan lisätään vielä komento, jotta ohjelmaa
 ajetaan PLC:llä.
 #+BEGIN_SRC
-    LDOhjelma();
+        LDOhjelma();
 #+END_SRC
 *LDOhjelma* on tässä ohjelman tiedostonimi.
 
@@ -213,7 +211,7 @@ käytössä myös ST-ohjelmoinnissa.
 ST-ohjelma lisätään samoin kuin muutkin ohjelmat, mutta valitaan tyypiksi
 *Structured Text*.
 Ohjelman editorina on tekstialue johon ohjelmakoodin voi kirjoittaa.
-[[file:kuvat/ST01.png]]
+[[file:kuvat/STOhjelma01.png]]
 
 Merkkivalon sytyttäminen kiertokytkimen asennon ja painonapin avulla
 toteutettaisiin ST-ohjelmoinnissa muuttujaan sijoituksella ja AND-operaattorilla.
