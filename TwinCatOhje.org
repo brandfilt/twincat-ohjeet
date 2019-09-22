@@ -206,6 +206,31 @@ Tässä vaiheessa projekti kannatta kääntää (ylävalikosta *Build Solution*)
 mahdolliset virheet tulevat näkyviin.
 
 *** Function Block Diagram -ohjelmointi
+FBD-ohjelmointimenetelmällä voidaan logiikka ohjelmoida erilaisten
+funktiolohkojen avulla. PLC-projektiin lisätään ohjelmointia varten uusi
+ohjelma, valiten tällä kertaa tyypiksi *Funcion Block Diagram*.
+
+*Toolbox*-ikkunasta löytyvät FBD-ohjelmointiin tarvittavat lohkot ja niitä voi
+lisätä ohjelmaan raahaamalla ne ohjelmanmuokkausnäkymään.
+
+[[file:kuvat/FBDOhjelma03.png]]
+Merkkivalon sytyttämiseen käytettävä ohjelma voidaan toteuttaa käyttämällä
+*AND*-lohkoa jossa on 2-tuloa. Tuloihin määritetään muuttujat *bKiertokytkin1*
+ja *bPainonappi* samaan tapaan kuin LD-ohjelmassa.
+
+[[file:kuvat/FBDOhjelma01.png]]
+
+*AND*-lohkon lähdöllä saadaa määritettyä *bMerkivalo*-muuttujan tila,
+sijoittamalla *Assignemt*-lohko *AND*-lohkon lähtöön. Tämän jälkeen voidaan
+muuttuja, johon lähdön tila sijoitetaan, asettaa normaalisti.
+
+[[file:kuvat/FBDOhjelma04.png]]
+
+Lisätään vielä MAIN-ohjelmaan komento, jolla FBD-ohjelma suoritetaan.
+#+BEGIN_SRC
+    FBDOhjelma();
+#+END_SRC
+
 *** Structured Text -ohjelmointi
 ST-ohjelmointimenetelmä sisältää paljon samoja rakenteita kuin korkeamman tason
 ohjelmointikielet. Esimerkiksi kontrollirakenteet IF, FOR, WHILE ja CASE ovat
