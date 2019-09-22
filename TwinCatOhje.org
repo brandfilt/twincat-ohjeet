@@ -214,14 +214,18 @@ ohjelma, valiten tällä kertaa tyypiksi *Funcion Block Diagram*.
 lisätä ohjelmaan raahaamalla ne ohjelmanmuokkausnäkymään.
 
 [[file:kuvat/FBDOhjelma03.png]]
+
 Merkkivalon sytyttämiseen käytettävä ohjelma voidaan toteuttaa käyttämällä
 *AND*-lohkoa jossa on 2-tuloa. Tuloihin määritetään muuttujat *bKiertokytkin1*
 ja *bPainonappi* samaan tapaan kuin LD-ohjelmassa.
 
 [[file:kuvat/FBDOhjelma01.png]]
 
-*AND*-lohkon lähdöllä saadaa määritettyä *bMerkivalo*-muuttujan tila,
-sijoittamalla *Assignemt*-lohko *AND*-lohkon lähtöön. Tämän jälkeen voidaan
+*AND*-lohkon lähdöllä saadaa määritettyä *bMerkkivalo*-muuttujan tila
+sijoittamalla *Assignment*-lohko *AND*-lohkon lähtöön.
+[[file:kuvat/FBDOhjelma02.png]]
+
+Tämän jälkeen voidaan
 muuttuja, johon lähdön tila sijoitetaan, asettaa normaalisti.
 
 [[file:kuvat/FBDOhjelma04.png]]
