@@ -23,21 +23,9 @@ TwinCat 3 lisenssi on täysin ilmainen mutta sen lisenssi on luotava uudelleen 7
 päivän välein. Lisenssin aktivointi tapahtuu TwinCat projektin SYSTEM kohdan alla
 olevasta License kohdasta.
 #+ATTR_HTML: width="300"
-#+ATTR_ORG: :width 300
 [[file:kuvat/Lisenssi01.png]]
 Kehityskoneen lisenssin voi aktivoida klikkaamalla "Activate 7 Days Trial
 License..." ja täyttämällä kysytty koodi.
-** Virtuaalikoneet
-Koska TwinCat ajaa PLC emulaatiota PC:llä saattaa se aiheuttaa ongelmia,
-jos samaan aikaan on käytössä muita virtuaalikoineita. TwinCat projektia ei tässä
-esimerkiksi pysty asettamaan Run-moodiin, jos samaan aikaan PC:llä on käynnissä VirtualBox.
-** Core isolation
-TwinCat projekti voidaan ajaa eristettynä yhdellä prosessorin ytimellä Core
-Isolation ominaisuuden avulla. Core Isolation löytyy projektin SYSTEM osion alta.
-** BIOS asetukset
-Hyper-Threading pois päältä
-*** Hyper-Threading *pois päältä*
-*** Intel Virtualization Technology Extensions (VT-x) *päälle*
 
 * Ensimmäinen PLC projekti
 ** Uusi projekti
@@ -45,14 +33,12 @@ Uusi PLC projekti aloitetaan valitsemalla Visual Studio File valikosta New
 Project.
 
 #+ATTR_HTML: :width="300px"
-#+ATTR_ORG: :width 100
 [[file:kuvat/UusiProjekti01.png]]
 
 Sen jälkeen valitaan Template valikosta TwinCAT Project XAE, annetaan
 projektille nimi ja sijainti ja luodaan projekti klikkaamalla OK.
 
 #+ATTR_HTML: width="300"
-#+ATTR_ORG :width 300
 [[file:kuvat/UusiProjekti03.png]]
 ** PLC projekti
 Kun TwinCat projekti on luotu, täytyy siihen vielä lisästä PLC projekti,
@@ -72,18 +58,13 @@ Projektin puunäkymään PLC-kohdan alle ilmestyy luotu projekti tiedostoineen.
 [[file:kuvat/PLCProjektiSisalto01.png]]
 *** Kansiorakenne
 PLC projektin alle luodaan automaattisesti kansiorakenne, joista tärkeimmät ovat:
-- References
-  Ulkoisten kirjastojen lisääminen.
-- DUTs
-  Data Unit Types, tietotyyppien määrittelyt.
-- GVL
-  Globaalien muuttujien määrittely. Globaalit muuttujat ovat käytettävissä
+- *References* Ulkoisten kirjastojen lisääminen.
+- *DUTs* Data Unit Types, tietotyyppien määrittelyt.
+- *GVL* Globaalien muuttujien määrittely. Globaalit muuttujat ovat käytettävissä
   kaikissa logiikkaohjelmissa ja käyttöliittymässä.
-- POU
-  Program Organization Unit, sisältää logiikkaohjelmat ja niihin liittyvät
+- *POU* Program Organization Unit, sisältää logiikkaohjelmat ja niihin liittyvät
   paikalliset muuttujat.
-- VISUs
-  Käyttöliittymien määrittely ja luominen.
+- *VISUs* Käyttöliittymien määrittely ja luominen.
 
 * Ohjelmointi
 TwinCat 3 tukee kaikkia IEC 61131-3 standardin mukaisia ohjelmointimenetelmiä,
@@ -169,7 +150,6 @@ Output rekisterit määritetään korvaamall I-kirjain Q:lla.
 #+BEGIN_SRC
     /muuttujanNimi/ AT %QX0.0 : /tyyppi/;
 #+END_SRC
-
 Kun projekti käännetään muuttujien määrittämisen jälkeen (*Build Solution*),
 ilmestyy PLC-projektin alla olevaan virtuaaliseen logiikkaohjaimeen (*PLC
 Instance*) globaaleja muuttujia vastaavat lähdöt ja tulot.
@@ -196,11 +176,13 @@ LD-ohjelmointia varten lisätään PLC-projektiin uusi ohjelma, jonka tyypiksi
 *(Implementation language)*
 määritetään *Ladder Diagram*.
 
+
 Sovelluksen oikeaan reunaan avautuu *ToolBox*, jonka alta LD-ohjelmointiin
 käytettävät työkalut löytyvät. LD-komponentteja voidaan lisätä ohjelmaan
 raahaamalla niitä *ToolBox*-ikkunasta, ja tiputtamalla ne sopivaan kohtaan ohjelmassa.
 
 [[file:kuvat/LDOhjelma01.png]]
+
 
 Tehdään yksinkertainen AND-ohjelma joka sytyttää merkkivalon kun kiertokytkin on
 asennossa 1, ja painonappia painetaan. Tätä varten tarvitaan kaksi
@@ -217,7 +199,6 @@ ajetaan PLC:llä.
 #+BEGIN_SRC
     LDOhjelma();
 #+END_SRC
-
 *LDOhjelma* on tässä ohjelman tiedostonimi.
 
 Tässä vaiheessa projekti kannatta kääntää (ylävalikosta *Build Solution*), jotta
@@ -239,12 +220,10 @@ toteutettaisiin ST-ohjelmoinnissa muuttujaan sijoituksella ja AND-operaattorilla
 #+BEGIN_SRC
     GVL.bMerkkivalo := GVL.bNappi AND GVL.bKytkinAsento1;
 #+END_SRC
-
 MAIN-ohjelmaan lisätään vielä komento, jolla ohjelma ajetaan.
 #+BEGIN_SRC
     STOhjelma();
 #+END_SRC
-
 Looppien (FOR, WHILE, REPEAT) käytössä on huomioitava, että PLC ohjelma
 itsessään on jo eräänlainen looppi, jota ajetaan asetuksiin määritetyllä
 skannausnopeudella. Looppaaminen odottaen jonkin tulon arvon muuttumista ei
@@ -256,25 +235,28 @@ myöskään toimi, koska tällöin ohjelma jumiutuu looppin.
 ** Ohjelman debuggaus ajon aikana
 - PLC ohjelmaa ja muuttujien arvoja voidaan tarkastella ja muuttaa ajon aikana.
 
-* I/O mäppäys laitteisiin
-** EtherCat laitteiden lisääminen
-** Terminaalimoduulien lisääminen
 
 * HMI käyttöliittymä
 ** Eri toteutustavat
 ** Web toteutuksen vaiheet
 ** UI mäppäys muuttujiin
-* Etäyhteys koulun laitteistoon
 
-|-----+---------------+-------|
-| CPU | Arkkitehtuuri | Muuta |
-|-----+---------------+-------|
-| Häh | Jotain        | Ehkä  |
-|     |               |       |
-|     |               |       |
-|     |               |       |
+* I/O mäppäys laitteisiin
+** EtherCat laitteiden lisääminen
+** Terminaalimoduulien lisääminen
 
 * Ongelmatilanteet
+** Virtuaalikoneet
+Koska TwinCat ajaa PLC emulaatiota PC:llä saattaa se aiheuttaa ongelmia,
+jos samaan aikaan on käytössä muita virtuaalikoineita. TwinCat projektia ei tässä
+esimerkiksi pysty asettamaan Run-moodiin, jos samaan aikaan PC:llä on käynnissä VirtualBox.
+** Core isolation
+TwinCat projekti voidaan ajaa eristettynä yhdellä prosessorin ytimellä Core
+Isolation ominaisuuden avulla. Core Isolation löytyy projektin SYSTEM osion alta.
+** BIOS asetukset
+Hyper-Threading pois päältä
+*** Hyper-Threading *pois päältä*
+*** Intel Virtualization Technology Extensions (VT-x) *päälle*
 
 * Ohjelman asetukset
 - Nopeuden säätö (cycle ticks jne.)
