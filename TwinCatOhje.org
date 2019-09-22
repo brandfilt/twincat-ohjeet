@@ -192,6 +192,7 @@ asennossa 1, ja painonappia painetaan. Tätä varten tarvitaan kaksi
 Muuttujat liitetään komponentteihin kirjoittamalla muuttuja nimi komponentin
 vieressä olevaan *???*-kenttään tai klikkaamalla sen vieressä olevaan laatikkoa, jolloin
 muuttujan voi valita listasta.
+
 [[file:kuvat/MuuttujanAsettaminen01.png]]
 
 Kun ohjelma on valmis, MAIN-ohjelmaan lisätään vielä komento, jotta ohjelmaa
