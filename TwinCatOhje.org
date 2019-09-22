@@ -182,11 +182,13 @@ Sovelluksen oikeaan reunaan avautuu *ToolBox*, jonka alta LD-ohjelmointiin käyt
 ohjelmassa. Ensimmäistä komponenttia raahatessa, se pudotetaan *Start Here* -laatikkoon.
 
 [[file:kuvat/LDOhjelma01.png]]
+
 Tehdään yksinkertainen AND-ohjelma joka sytyttää merkkivalon kun kiertokytkin on
 asennossa 1, ja painonappia painetaan. Tätä varten tarvitaan kaksi
 *Contact*-komponenttia ja yksi *Coil*-komponentti.
 
 [[file:kuvat/LDOhjelma02.png]]
+
 Muuttujat liitetään komponentteihin kirjoittamalla muuttuja nimi komponentin
 vieressä olevaan *???*-kenttään tai klikkaamalla sen vieressä olevaan laatikkoa, jolloin
 muuttujan voi valita listasta.
