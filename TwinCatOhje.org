@@ -223,6 +223,7 @@ ja *bPainonappi* samaan tapaan kuin LD-ohjelmassa.
 
 *AND*-lohkon lähdöllä saadaa määritettyä *bMerkkivalo*-muuttujan tila
 sijoittamalla *Assignment*-lohko *AND*-lohkon lähtöön.
+
 [[file:kuvat/FBDOhjelma02.png]]
 
 Tämän jälkeen voidaan
