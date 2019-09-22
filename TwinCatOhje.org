@@ -103,7 +103,7 @@ PLC-projektin ohjelmista ja käyttöliittymistä. Globaalit muuttuja ovat myös
 mahdollista liittää johonkin fyysiseen tuloon tai lähtöön.
 
 Eri muuttujatyyppejä ovat mm. BOOL, INT, UINT, REAL, TIME, DATE, ARRAY jne.
-Myös ajastimet ja triggerit määritetään muuttujina. Ajastimen tyypi on TON??
+Myös ajastimet ja triggerit määritetään muuttujina.
 
 *** Ohjelman muuttujat
 PLC-ohjelman muuttujat voidaan asettaa ohjelman muokkausikkunan yläosassa
