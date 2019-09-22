@@ -1,5 +1,7 @@
-#+TITLE: TwinCat 3 Opas, perusteet
+#+TITLE: TwinCat 3 Opas
 #+STARTUP: showall
+* Oppaan käytöstä
+Esimerkit,
 * Mikä TwinCat?
 TwinCat (The Windows Control and Automation Technology) on Beckhoffin
 automaatiojärjestelmien ydin.
@@ -100,8 +102,10 @@ useampaan tiedostoon.
 
 POU-kansioon voidaan lisätä eri ohjelmointimenetelmillä
 toteutettuja ohjelmia eri klikkaamalla kansiota hiiren oikealla ja valitsemalla
-*Add New Item*. Avautuvasta ikkunasta voidaan valita ohjelmointimenetelmä ja
+*Add* ja *POU*. Avautuvasta ikkunasta voidaan valita ohjelmointimenetelmä ja
 antaa ohjelmalle nimi.
+[[file:kuvat/LisaaOhjelma01.png]]
+[[file:kuvat/LisaaOhjelma02.png]]
 
 Uudet ohjelmat eivät automaattisesti ole "käytössä" vaan ne pitää erikseen
 määritellä ajettavaksi. Tämä voidaan tehdä esimerkiksi suorittamalla uusi
@@ -136,6 +140,7 @@ Esim.
 #+END_SRC
 
 [[file:kuvat/Muuttujat01.png]]
+[[file:kuvat/Muuttujat02.png]]
 *** Globaalit muuttujat
 Globaalien muuttujien avulla tulot ja lähdöt saadaan helposti liitettyä
 ohjelmissa käytettäviin muuttujiin. Muuttujien määrittely onnistuu lisäämällä
@@ -168,34 +173,72 @@ Output rekisterit määritetään korvaamall I-kirjain Q:lla.
 Kun projekti käännetään muuttujien määrittämisen jälkeen (*Build Solution*),
 ilmestyy PLC-projektin alla olevaan virtuaaliseen logiikkaohjaimeen (*PLC
 Instance*) globaaleja muuttujia vastaavat lähdöt ja tulot.
-** Ladder diagram -ohjelmointi
+
+Kun globaaleja muuttujia halutaan käyttään ohjelmissa, täytyy muuttujan nimen
+eteen lisätä sen tiedoston nimi jossa muuttuja on määritelty. Esim *GVL.muuttujanNimi*
+** Ohjelmointiesimerkit
+Seuraavaksi esitellään LD, FBD ja ST ohjelmointia yksinkertaisen esimerkin
+avulla. Ennen esimerkkien tekemistä tulisi määrittää globaalit *BOOL* muuttujat
+bMerkkivalo, bKiertokytkin1 ja bPainonappi GVL-tiedostoon.
+
+#+BEGIN_SRC
+    bKiertokytkin1 AT %I* : BOOL;
+    bPainonappi AT %I* : BOOL;
+    bMerkivalo AT %Q* : BOOL;
+#+END_SRC
+
+*bMerkkivalo* on globaali BOOL muuttuja joka on mapattu digitaalisen lähtöön.
+*bPainonappi* on globaali BOOL muuttuja, joka on mapattu digitaaliseen tuloon. *bKiertokytkin1*
+*on globaali BOOL muuttuja, joka on mapattu digitaaliseen tuloona.
+
+*** Ladder diagram -ohjelmointi
 LD-ohjelmointia varten lisätään PLC-projektiin uusi ohjelma, jonka tyypiksi
+*(Implementation language)*
 määritetään *Ladder Diagram*.
 
-MAIN-ohjelmaan lisätään vielä komento, jolla ohjelma ajetaan.
+Sovelluksen oikeaan reunaan avautuu *ToolBox*, jonka alta LD-ohjelmointiin
+käytettävät työkalut löytyvät. LD-komponentteja voidaan lisätä ohjelmaan
+raahaamalla niitä *ToolBox*-ikkunasta, ja tiputtamalla ne sopivaan kohtaan ohjelmassa.
+
+[[file:kuvat/LDOhjelma01.png]]
+
+Tehdään yksinkertainen AND-ohjelma joka sytyttää merkkivalon kun kiertokytkin on
+asennossa 1, ja painonappia painetaan. Tätä varten tarvitaan kaksi
+*Contact*-komponenttia ja yksi *Coil*-komponentti.
+
+[[file:kuvat/LDOhjelma02.png]]
+
+Muuttujat liitetään komponentteihin kirjoittamalla muuttuja nimi komponentin
+vieressä olevaan pieneen laatikkoon, tai tuplaklikkaamalla laatikkoja, jolloin
+muuttujan voi valita listasta. Glob
+
+Kun ohjelma on valmis, MAIN-ohjelmaan lisätään vielä komento, jotta ohjelmaa
+ajetaan PLC:llä.
 #+BEGIN_SRC
     LDOhjelma();
 #+END_SRC
-** Function Block Diagram -ohjelmointi
-** Structured Text -ohjelmointi
+
+*LDOhjelma* on tässä ohjelman tiedostonimi.
+
+Tässä vaiheessa projekti kannatta kääntää (ylävalikosta *Build Solution*), jotta
+mahdolliset virheet tulevat näkyviin.
+
+*** Function Block Diagram -ohjelmointi
+*** Structured Text -ohjelmointi
 ST-ohjelmointimenetelmä sisältää paljon samoja rakenteita kuin korkeamman tason
 ohjelmointikielet. Esimerkiksi kontrollirakenteet IF, FOR, WHILE ja CASE ovat
 käytössä myös ST-ohjelmoinnissa.
 
-ST-ohjelma lisätään samoin kuin muutkin ohjelmat, mutta valitaan tyypiksi ST.
+ST-ohjelma lisätään samoin kuin muutkin ohjelmat, mutta valitaan tyypiksi
+*Structured Text*.
 Ohjelman editorina on tekstialue johon ohjelmakoodin voi kirjoittaa.
 [[file:kuvat/ST01.png]]
 
-Esimerkki yksinkertaisesta ohjelmasta joka asettaa jonkin lähdön sen
-perusteella mitkä tulot ovat päällä.
+Merkkivalon sytyttäminen kiertokytkimen asennon ja painonapin avulla
+toteutettaisiin ST-ohjelmoinnissa muuttujaan sijoituksella ja AND-operaattorilla.
 #+BEGIN_SRC
-    bMerkkivalo := bNappi AND bKytkinAsento1;
+    GVL.bMerkkivalo := GVL.bNappi AND GVL.bKytkinAsento1;
 #+END_SRC
-*bMerkkivalo* on globaali BOOL muuttuja joka on mapattu digitaalisen lähtöön.
-*bNappi* on globaali BOOL muuttuja, joka on mapattu digitaaliseen tuloon. *bKytkinAsento1*
-*on globaali BOOL muuttuja, joka on mapattu digitaaliseen tuloona.
-Tässä tapauksessa merkkivalo siis sytytetään kun kiertokytkin on asennossa 1 ja
-*nappia painetaan.
 
 MAIN-ohjelmaan lisätään vielä komento, jolla ohjelma ajetaan.
 #+BEGIN_SRC
@@ -206,8 +249,6 @@ Looppien (FOR, WHILE, REPEAT) käytössä on huomioitava, että PLC ohjelma
 itsessään on jo eräänlainen looppi, jota ajetaan asetuksiin määritetyllä
 skannausnopeudella. Looppaaminen odottaen jonkin tulon arvon muuttumista ei
 myöskään toimi, koska tällöin ohjelma jumiutuu looppin.
-
-
 
 * Simulointi
 ** Projektin simuloiminen TwinCat runtimella
