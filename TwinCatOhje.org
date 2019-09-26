@@ -24,6 +24,7 @@ päivän välein. Lisenssin aktivointi tapahtuu TwinCat projektin SYSTEM kohdan 
 olevasta License kohdasta.
 #+ATTR_HTML: width="300"
 [[file:kuvat/Lisenssi01.png]]
+
 Kehityskoneen lisenssin voi aktivoida klikkaamalla "Activate 7 Days Trial
 License..." ja täyttämällä kysytty koodi.
 
@@ -262,9 +263,59 @@ myöskään toimi, koska tällöin ohjelma jumiutuu looppin.
 
 * Simulointi
 ** Projektin simuloiminen TwinCat runtimella
-- Aktivoi konfiguraatio
+PLC-ohjelmia voidaan testata TwinCatissä simuloimalla logiikka PC:llä.
+Simuloinnissa PC:llä ajetaan samaa TwinCat Runtime jota myös logiikat käyttävät
+joten ohjelmien tulisi käyttätyä realistisesti.
+
+Seuraavaksi kuvataan vaihe vaiheelta miten simulointi tehdään.
+1. Varmista että sovellus kääntyy
+   Ennnen simuloinnin yrittämistä kannattaa varmistaa että sovellus kääntyy ja
+   kaikki on kunnossa simulointia varten. Kääntäminen tapahtuu *Build*-valikon
+   *Build Solution* komennolla.
+   [[file:kuvat/BuildSolution.png]]
+   Konsoliin tulostuu käännöksen tietoa käännöksestä, ja mahdolliset virheet
+   jotka täytyy korjata ennen kuin sovellusta voi simuloida.
+  
+2. Aktivoi konfiguraatio
+   Onnistuneen kääntämisen jälkeen tämän hetkinen konfiguraatio täytyy
+   aktivoida, jolloin kaikki PLC-projektin tiedostot siirretään kohdelaitteistolle
+   (tässä tapauksessa simuloidulle PLC:lle). Konfiguraation aktivointi tapahtuu
+   työkalupalkin vasemmassa reunassa olevasta napista.
+   [[file:kuvat/AktivoiKonfiguraatio.png]]
+
+   TwinCat kysyy korvataanko olemassa oleva konfiguraatio.
+   [[file:kuvat/AktivoiKonfiguraatio2.jpg]]
+
+   Jos lisenssi on umpeutunut, täytyy se uusia tässä vaiheessa.
+   [[file:kuvat/AktivoiKonfiguraatio2.jpg]]
+
+   TwinCat kysyy siirrytäänkö Run-moodiin vai pysytäänkö Config-moodissa.
+   Vastataan tähän *OK*.
+   [[file:kuvat/Restart.png]]
+   Tämän jälkeen PLC-projekti on kopioitu simuloidulle logiikalle ja on
+   *Run*-moodissa jos työkalurivillä näkyy vihreä ikoni.
+
+3. Login
+   Seuraavaksi suoritetaan *Login* klikkaamalla työkalupalkin ikonia.
+   [[file:kuvat/Login2.png]]
+
+   TwinCat kysyy halutaanko luoda ja ladata sovellus logiikalle.
+   Vastataan *Yes*.
+
+4. Start
+   Kun sovellus on ladattu logiikalle klikataan työkalupalkin vihreää
+   "play"-kuvaketta, jolloin sovellus käynnistetään.
+   [[file:kuvat/Run.png]]
+
+   Käynnissä olevan sovelluksen hallintaan on työkalupalkissa rivi eri toimintoja.
+   [[file:kuvat/Running.png]]
+
 ** Ohjelman debuggaus ajon aikana
 - PLC ohjelmaa ja muuttujien arvoja voidaan tarkastella ja muuttaa ajon aikana.
+- Muuta arvoa
+- Kirjoita arvot
+- Muuta koodia
+- Login with changes
 
 
 * HMI käyttöliittymä
