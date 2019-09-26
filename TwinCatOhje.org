@@ -274,6 +274,7 @@ Seuraavaksi kuvataan vaihe vaiheelta miten simulointi tehdään.
    *Build Solution* komennolla.
   
    [[file:kuvat/BuildSolution.png]]
+
    Konsoliin tulostuu käännöksen tietoa käännöksestä, ja mahdolliset virheet
    jotka täytyy korjata ennen kuin sovellusta voi simuloida.
   
