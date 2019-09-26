@@ -1,7 +1,5 @@
 #+TITLE: TwinCat 3 Opas
 #+STARTUP: showall
-* Oppaan käytöstä
-Esimerkit,
 * Mikä TwinCat?
 TwinCat (The Windows Control and Automation Technology) on Beckhoffin
 automaatiojärjestelmien ydin.
@@ -325,11 +323,49 @@ Seuraavaksi kuvataan vaihe vaiheelta miten simulointi tehdään.
    [[file:kuvat/Running.png]]
 
 ** Ohjelman debuggaus ajon aikana
-- PLC ohjelmaa ja muuttujien arvoja voidaan tarkastella ja muuttaa ajon aikana.
-- Muuta arvoa
-- Kirjoita arvot
-- Muuta koodia
-- Login with changes
+Kun ohjelma on käynnissä PLC:llä, voidaan sen toimintaa tutkia ja muokata ajon
+aikana. Seuraavaksi käydään läpi muuttujien arvon muuttaminen ajona aikana sekä
+ohjelman muuttaminen ja päivittäminen laitteelle /lennosta/.
+
+Kun ohjelma on käynnissä PLC:llä voidaan muuttujien ja ohjelmien tilaa
+tarkastella avaamalla jokin ohjelma. Muuttujien
+arvoja voidaan muuttaa tuplaklikkaamalla ohjelman muokkausnäkymässä jotain
+muuttujaa. BOOL tyyppiset muuttujat vaihtavat arvonsa vastakkaiseksi ja esim.
+numeromuuttujien arvon pystyy kirjoittamaan kenttään.
+
+Kokeillaan muuttaa
+edellisessä luvussa tehdyd LD-ohjelman sisältämien muuttujien arvoja.
+Kun muuttujaa tuplaklikataan ilmestyy sen viereen teksti *<TRUE>* tai *<FALSE>*
+riippuen siitä, mikä muuttujan arvo oli aikaisemmin.
+
+[[file:kuvat/MuutaArvo01.png]]
+
+Muuttujan arvon muutos ei vielä ole voimassa, vaan muutetut arvon täytyy vielä
+kirjoittaa PLC:n muistiin. Klikataan *Write values*-kuvaketta
+työkalupalkin oikeasta reunasta.
+
+Kun sama toimi on tehty ohjelman molemmille tulo-muuttujille (*bKiertokytkin1*
+ja *bPainonappi*), muuttuu lähtö *bMerkkivalo* arvoon *TRUE* ja merkkivalo syttyy.
+
+Myös käynnissä olevaa ohjelmaa voidaan muokata ilman että PLC:tä täytyy
+käynnistää uudelleen tai konfiguraatiota tarvitsee ladata uudestaan.
+
+Kokeillaan käynnissä olevan ohjelman muuttamista muokkaamalla edellisessä
+luvussa tehtyä ST-ohjelmaa. Ennen muutosten tekoa täytyy TwinCat /kirjata ulos/
+PLC:stä työkalupalkin *Logout* kuvaketta klikkaamalla.
+
+[[file:kuvat/MuutaOhjelmaa.png]]
+
+Tämän jälkeen muokataan ohjelmaa siten että merkkivalon sytyttämiseen vaaditaan
+vain että kiertokytkin on asennossa 1.
+
+[[file:kuvat/LoginWithChange.png]]
+
+Kun muutos on tehty, klikataan jälleen *Login* kuvaketta, jolloin TwinCat kysyy
+halutaanko kirjautuminen tehdä lataamalla muutokset laitteelle (*Login with
+online change*), lataamalla PLC:llä oleva ohjelma TwinCatiin (*Login with
+download*) vai ilman muutoksia (*Login without any change*). Valitaan *Login
+with online change*, tällöin ohjelmaan tehdyt muutokset kopioidaan PLC:lle.
 
 
 * HMI käyttöliittymä
