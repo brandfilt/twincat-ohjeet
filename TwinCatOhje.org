@@ -284,16 +284,20 @@ Seuraavaksi kuvataan vaihe vaiheelta miten simulointi tehdään.
    työkalupalkin vasemmassa reunassa olevasta napista.
 
    [[file:kuvat/AktivoiKonfiguraatio.png]]
+
    TwinCat kysyy korvataanko olemassa oleva konfiguraatio.
 
    [[file:kuvat/AktivoiKonfiguraatio2.jpg]]
+
    Jos lisenssi on umpeutunut, täytyy se uusia tässä vaiheessa.
 
    [[file:kuvat/AktivoiKonfiguraatio2.jpg]]
+
    TwinCat kysyy siirrytäänkö Run-moodiin vai pysytäänkö Config-moodissa.
    Vastataan tähän *OK*.
 
    [[file:kuvat/Restart.png]]
+
    Tämän jälkeen PLC-projekti on kopioitu simuloidulle logiikalle ja on
    *Run*-moodissa jos työkalurivillä näkyy vihreä ikoni.
 
@@ -301,6 +305,7 @@ Seuraavaksi kuvataan vaihe vaiheelta miten simulointi tehdään.
    Seuraavaksi suoritetaan *Login* klikkaamalla työkalupalkin ikonia.
 
    [[file:kuvat/Login2.png]]
+
    TwinCat kysyy halutaanko luoda ja ladata sovellus logiikalle.
    Vastataan *Yes*.
 
@@ -309,6 +314,7 @@ Seuraavaksi kuvataan vaihe vaiheelta miten simulointi tehdään.
    "play"-kuvaketta, jolloin sovellus käynnistetään.
 
    [[file:kuvat/Run.png]]
+
    Käynnissä olevan sovelluksen hallintaan on työkalupalkissa rivi eri toimintoja.
 
    [[file:kuvat/Running.png]]
