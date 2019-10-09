@@ -4,18 +4,26 @@
 TwinCat (The Windows Control and Automation Technology) on Beckhoffin
 automaatiojärjestelmien ydin.
 
-Se on PC-pohjainen ohjelmisto, joka muuttaa minkä tahansaPC:n tehokkaaksi automaatiojärjestelmien ohjaimeksi.
+Se on PC-pohjainen ohjelmisto, joka muuttaa minkä tahansa PC:n tehokkaaksi automaatiojärjestelmien ohjaimeksi.
 
 TwinCat 3 on ohjelmiston uusin versio, jonka avulla automaatiohjelmointia
 voidaan tehdä IEC 61131-3 standardin mukaisten kielten lisäksi C ja C++
 ohjelmointikielillä. Twincat 3 on rakennettu Microsoftin Visual Studio
 ohjelmointiympäristön päälle.
+
+TwinCat on jaettu komponentteihin joista *TC3 Engineering* on sisältää
+logiikoiden konfigurointi, ohjelmointi ja debuggaus ominaisuudet. Muiden
+komponenttien avulla kehitysympäristöön voidaan lisätä ominaisuuksia.
 * Asennus ja ensimmäinen käynnistys
 ** Vaatimukset
 - Windows XP tai uudempi
 - Prosessori 1.6Ghz
 - 2GB RAM
 - 3GB kiintolevytilaa
+** Asennus
+Visual Studio 2017
+TwinCat 3 TE1xxx Engineering
+TwinCat 3 TE2000 HMI
 ** Lisenssi
 TwinCat 3 lisenssi on täysin ilmainen mutta sen lisenssi on luotava uudelleen 7
 päivän välein. Lisenssin aktivointi tapahtuu TwinCat projektin SYSTEM kohdan alla
@@ -340,7 +348,8 @@ riippuen siitä, mikä muuttujan arvo oli aikaisemmin.
 
 [[file:kuvat/MuutaArvo01.png]]
 
-Muuttujan arvon muutos ei vielä ole voimassa, vaan muutetut arvon täytyy vielä
+Muuttujan arvon muutos ei kuitenkaan ole vielä voimassa, vaan muutetut arvon
+täytyy ensin
 kirjoittaa PLC:n muistiin. Klikataan *Write values*-kuvaketta
 työkalupalkin oikeasta reunasta.
 
@@ -370,6 +379,8 @@ with online change*, tällöin ohjelmaan tehdyt muutokset kopioidaan PLC:lle.
 
 * HMI käyttöliittymä
 ** Eri toteutustavat
+** TwinCat 3 HMI
+TwinCat
 ** Web toteutuksen vaiheet
 ** UI mäppäys muuttujiin
 
