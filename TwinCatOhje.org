@@ -377,12 +377,15 @@ download*) vai ilman muutoksia (*Login without any change*). Valitaan *Login
 with online change*, tällöin ohjelmaan tehdyt muutokset kopioidaan PLC:lle.
 
 
-* HMI käyttöliittymä
-** Eri toteutustavat
-** TwinCat 3 HMI
-TwinCat
-** Web toteutuksen vaiheet
-** UI mäppäys muuttujiin
+* TwinCat 3 HMI
+TwinCat 3 HMI on Beckhoffin komponentti käyttöliittymien luomiseen. HMI:llä
+tehdyt käyttöliittymät ovat HTML5-pohjaisia ja niitä voi käyttää normaalilla
+Internet-selaimella. Käyttöliittymää varten luodaan oma HMI projektinsa
+PLC-projektin rinnalle.
+** HMI projektin luominen
+** Käyttöliittymän komponentit
+** Linkitys PLC-projektin muuttujiin
+** Käyttöliittymän testaus
 
 * I/O mäppäys laitteisiin
 ** EtherCat laitteiden lisääminen
