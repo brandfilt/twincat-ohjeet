@@ -22,7 +22,7 @@ komponenttien avulla kehitysympäristöön voidaan lisätä ominaisuuksia.
 - 3GB kiintolevytilaa
 ** Asennus
 Visual Studio 2017
-TwinCat 3 TE1xxx Engineering
+TwinCat 3 TE1000 XAE
 TwinCat 3 TE2000 HMI
 ** Lisenssi
 TwinCat 3 lisenssi on täysin ilmainen mutta sen lisenssi on luotava uudelleen 7
@@ -380,12 +380,40 @@ with online change*, tällöin ohjelmaan tehdyt muutokset kopioidaan PLC:lle.
 * TwinCat 3 HMI
 TwinCat 3 HMI on Beckhoffin komponentti käyttöliittymien luomiseen. HMI:llä
 tehdyt käyttöliittymät ovat HTML5-pohjaisia ja niitä voi käyttää normaalilla
-Internet-selaimella. Käyttöliittymää varten luodaan oma HMI projektinsa
-PLC-projektin rinnalle.
-** HMI projektin luominen
+Internet-selaimella. Käyttöliittymää varten luodaan oma HMI projektinsa, joka
+voidaan halutessa luoda PLC-projektin rinnalle tai omaan kansioonsa.
+** HMI projektin luominen ja muokkaaminen
+Avoinna olevaan TwinCat projektiin (solution) voidaan lisätä HMI-projekti
+klikkaamala oikealla ja valitsemalla *Add->New Project*. Avautuvasta ikkunasta
+valitaan TwinCat HMI ja HMI Project.
+
+Käyttöliittymä voidaan muokata joko käyttäen ns. WYSIWYG (What You See Is What You Get)
+editoria tai suoraan muokkaamalla HTML koodia.
+# WYSIWYG editor
+# Myös koodia voi muokata
+
 ** Käyttöliittymän komponentit
+Käyttöliittymän peruskomponentit löytyvät *Toolbox* ikkunasta (ikkunan saa
+tarvittaessa näkyviin *View* valikon alta). TwinCat HMI sisältää noin
+parikymmentä komponenttia yksinkertaisista tekstikentistä aina monimutkaisempiin
+datan visualisointikomponentteihin asti.
+
+Seuraavaksi käsitellään peruskomponenttien *Button*, *ToggleButton* ja *Ellipse*
+käyttämistä edellisessä luvussa tehtyjen ohjelmien käyttöliittymän tekemisessä.
+
+# Lisätään nappi
+# Lisätään toggle
+# Lisätään ellipsi
 ** Linkitys PLC-projektin muuttujiin
+# Linkitetään nappi bPainonappi muuttujaan
+# Linkitetään toggle bKytkin muuttujaan
+# Linkitetään ellipsin väri bMerkkilamppu muuttujaan
 ** Käyttöliittymän testaus
+# Live View
+# Seurataan
+
+** Käyttöliittymän julkaisu
+# Publish
 
 * I/O mäppäys laitteisiin
 ** EtherCat laitteiden lisääminen
