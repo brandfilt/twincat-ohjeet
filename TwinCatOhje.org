@@ -401,10 +401,19 @@ datan visualisointikomponentteihin asti.
 Seuraavaksi käsitellään peruskomponenttien *Button*, *ToggleButton* ja *Ellipse*
 käyttämistä edellisessä luvussa tehtyjen ohjelmien käyttöliittymän tekemisessä.
 
-# Lisätään nappi
-# Lisätään toggle
-# Lisätään ellipsi
+Ensimmäisenä lisätää painonappi, jota käytetään bPainonappi muuttujan arvon
+asettamiseen. Nappi lisätään raahaamalla se *ToolBox*-ikkunasta käyttöliittymän
+muokausnäkymään. Elementtien tarkka asemointi on helppoa editorin apuviivojen avulla.
+
+Seuraavaksi lisätään käyttöliittymään *ToggleButton* jolla asetetaan *bKytkin*
+muuttujan arvo.
+
+Viimeisenä käyttöliittymään lisätään *Ellipse*, eli ellipsi. Ellipsin
+täyttöväriä voidaan käyttää *bMerkkilamppu*-muuttujan arvon indikoimiseen.
+
 ** Linkitys PLC-projektin muuttujiin
+Nappi linkitetään PLC-ohjelman muuttujaan *Properties*-ikkunan olevan kentän X
+avulla.
 # Linkitetään nappi bPainonappi muuttujaan
 # Linkitetään toggle bKytkin muuttujaan
 # Linkitetään ellipsin väri bMerkkilamppu muuttujaan
