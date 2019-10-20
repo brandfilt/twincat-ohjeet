@@ -166,18 +166,18 @@ eteen lisätä sen tiedoston nimi jossa muuttuja on määritelty. Esim *GVL.muut
 ** Ohjelmointiesimerkit
 Seuraavaksi esitellään LD, FBD ja ST ohjelmointia yksinkertaisen esimerkin
 avulla. Ennen esimerkkien tekemistä tulisi määrittää globaalit *BOOL* muuttujat
-bMerkkivalo, bKiertokytkin1 ja bPainonappi GVL-tiedostoon.
+bMerkkivalo, bKytkin ja bPainonappi GVL-tiedostoon.
 
 #+BEGIN_SRC
 VAR_GLOBAL
-    bKiertokytkin1 AT %I* : BOOL;
+    bKytkin AT %I* : BOOL;
     bPainonappi AT %I* : BOOL;
     bMerkivalo AT %Q* : BOOL;
 END_VAR
 #+END_SRC
 
 *bMerkkivalo* on globaali BOOL muuttuja joka on mapattu digitaalisen lähtöön.
-*bPainonappi* on globaali BOOL muuttuja, joka on mapattu digitaaliseen tuloon. *bKiertokytkin1*
+*bPainonappi* on globaali BOOL muuttuja, joka on mapattu digitaaliseen tuloon. *bKytkin*
 *on globaali BOOL muuttuja, joka on mapattu digitaaliseen tuloona.
 
 *** Ladder diagram -ohjelmointi
@@ -223,7 +223,7 @@ lisätä ohjelmaan raahaamalla ne ohjelmanmuokkausnäkymään.
 [[file:kuvat/FBDOhjelma03.png]]
 
 Merkkivalon sytyttämiseen käytettävä ohjelma voidaan toteuttaa käyttämällä
-*AND*-lohkoa jossa on 2-tuloa. Tuloihin määritetään muuttujat *bKiertokytkin1*
+*AND*-lohkoa jossa on 2-tuloa. Tuloihin määritetään muuttujat *bKytkin*
 ja *bPainonappi* samaan tapaan kuin LD-ohjelmassa.
 
 [[file:kuvat/FBDOhjelma01.png]]
@@ -353,7 +353,7 @@ täytyy ensin
 kirjoittaa PLC:n muistiin. Klikataan *Write values*-kuvaketta
 työkalupalkin oikeasta reunasta.
 
-Kun sama toimi on tehty ohjelman molemmille tulo-muuttujille (*bKiertokytkin1*
+Kun sama toimi on tehty ohjelman molemmille tulo-muuttujille (*bKytkin*
 ja *bPainonappi*), muuttuu lähtö *bMerkkivalo* arvoon *TRUE* ja merkkivalo syttyy.
 
 Myös käynnissä olevaa ohjelmaa voidaan muokata ilman että PLC:tä täytyy
@@ -389,14 +389,20 @@ valitaan TwinCat HMI ja HMI Project.
 
 Käyttöliittymä voidaan muokata joko käyttäen ns. WYSIWYG (What You See Is What You Get)
 editoria tai suoraan muokkaamalla HTML koodia.
-# WYSIWYG editor
-# Myös koodia voi muokata
 
 ** Käyttöliittymän komponentit
 Käyttöliittymän peruskomponentit löytyvät *Toolbox* ikkunasta (ikkunan saa
 tarvittaessa näkyviin *View* valikon alta). TwinCat HMI sisältää noin
 parikymmentä komponenttia yksinkertaisista tekstikentistä aina monimutkaisempiin
 datan visualisointikomponentteihin asti.
+
+[[file:kuvat/hmi/HMIToolbox.png]]
+
+Kun jokin komponentti on valittuna voidaan sen ominaisuuksia muuttaa
+*Properties* ikkunan alta. *Properties* ikkunan *Events* välilehdeltä
+(salamaikoni) voidaan PLC-ohjelman muuttujat linkittää käyttöliittymään.
+
+[[file:kuvat/hmi/ButtonBinding.png]]
 
 Seuraavaksi käsitellään peruskomponenttien *Button*, *ToggleButton* ja *Ellipse*
 käyttämistä edellisessä luvussa tehtyjen ohjelmien käyttöliittymän tekemisessä.
@@ -405,15 +411,22 @@ Ensimmäisenä lisätää painonappi, jota käytetään bPainonappi muuttujan ar
 asettamiseen. Nappi lisätään raahaamalla se *ToolBox*-ikkunasta käyttöliittymän
 muokausnäkymään. Elementtien tarkka asemointi on helppoa editorin apuviivojen avulla.
 
+[[file:kuvat/hmi/Button.png]]
+
 Seuraavaksi lisätään käyttöliittymään *ToggleButton* jolla asetetaan *bKytkin*
 muuttujan arvo.
+
+[[file:kuvat/hmi/ButtonAndToggleButton.png]]
 
 Viimeisenä käyttöliittymään lisätään *Ellipse*, eli ellipsi. Ellipsin
 täyttöväriä voidaan käyttää *bMerkkilamppu*-muuttujan arvon indikoimiseen.
 
+[[file:kuvat/hmi/EllipseAdd.png]]
+
 ** Linkitys PLC-projektin muuttujiin
 Nappi linkitetään PLC-ohjelman muuttujaan *Properties*-ikkunan olevan kentän X
 avulla.
+
 # Linkitetään nappi bPainonappi muuttujaan
 # Linkitetään toggle bKytkin muuttujaan
 # Linkitetään ellipsin väri bMerkkilamppu muuttujaan
@@ -424,6 +437,8 @@ avulla.
 ** Käyttöliittymän julkaisu
 # Publish
 
+# Laitteelle
+# Zip-paketti
 * I/O mäppäys laitteisiin
 ** EtherCat laitteiden lisääminen
 ** Terminaalimoduulien lisääminen
