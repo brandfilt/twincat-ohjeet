@@ -378,10 +378,12 @@ with online change*, tällöin ohjelmaan tehdyt muutokset kopioidaan PLC:lle.
 
 
 * TwinCat 3 HMI
-TwinCat 3 HMI on Beckhoffin komponentti käyttöliittymien luomiseen. HMI:llä
+TwinCat 3 HMI on Beckhoffin työkalu käyttöliittymien luomiseen. HMI:llä
 tehdyt käyttöliittymät ovat HTML5-pohjaisia ja niitä voi käyttää normaalilla
 Internet-selaimella. Käyttöliittymää varten luodaan oma HMI projektinsa, joka
 voidaan halutessa luoda PLC-projektin rinnalle tai omaan kansioonsa.
+
+# Asiaa PLC HMIstä?
 ** HMI projektin luominen ja muokkaaminen
 Avoinna olevaan TwinCat projektiin (solution) voidaan lisätä HMI-projekti
 klikkaamala oikealla ja valitsemalla *Add->New Project*. Avautuvasta ikkunasta
@@ -424,21 +426,77 @@ täyttöväriä voidaan käyttää *bMerkkilamppu*-muuttujan arvon indikoimiseen
 [[file:kuvat/hmi/EllipseAdd.png]]
 
 ** Linkitys PLC-projektin muuttujiin
-Nappi linkitetään PLC-ohjelman muuttujaan *Properties*-ikkunan olevan kentän X
-avulla.
+Nappi linkitetään PLC-ohjelman muuttujaan *Properties*-ikkunan olevan kentän *StateSymbol*
+avulla. Kenttän arvo on tosi, aina kun nappi on alaspainettuna, ja epätosi
+muulloin. Kun *StateSymbol* linkitetään PLC-projektin globaaliin *bPainonappi*
+muuttujaan, vaikuttaa napin painaminen PLC-ohjelmien toimintaan.
 
-# Linkitetään nappi bPainonappi muuttujaan
-# Linkitetään toggle bKytkin muuttujaan
+[[file:kuvat/hmi/ButtonBinding.png]]
+
+Seuraavaksi linkitetään ToggleButton muuttujaan *bKytkin*. Tämä tapahtuu
+tuplaklikkaamalla nappia, jolloin avautuu /Actions and conditions fo [TcHmiToggleButton.onPressed]/-ikkuna.
+
+[[file:kuvat/hmi/ActionsAndConditions.png]]
+
+/Actions and Conditions/-ikkunasta voidaa käyttöliittymäkontrolleille lisätä
+toiminnallisuuksia, jotka suoritetaan jonkin eventin yhteydessä. Tässä
+tapauksessa eventti on *onPressed*, eli kun nappia painetaan.
+
+Ikkunan vasemmassa laidassa on *Action*-steppejä, joita voidaan lisätä
+suoritettavaksi. Lista sisältää myös muuttujia ja kontrolleja, joita voidaan
+käyttää actioneissa. ToggleButton-kontrollilla on arvo *ToggleState*, jota voimme käyttää
+*bKytkin*-muuttujan arvon asettamiseen. Sen arvo voi olla joko *Normal* tai *Active*.
+
+Lisätään ensin ehto, jonka perusteella tila asetetaan. Valitaan vasemmasta
+valikosta *Condition* ja raahataan se oikealla olevaan tyhjään tilaan.
+*Condition*-actioni luo if-ehdon, jolla voidaan tarkistaa muuttujan arvo ja sen
+jälkeen suorittaa toisia actioneita arvosta riippuen.
+
+[[file:kuvat/hmi/Condition.png]]
+
+Tämän jälkeen valitaan vasemmasta listasta ToggleButtonin *ToggleState* arvo, ja
+raahataan se IF-ehdon ensimmäiseen kenttään. Kolmanteen kenttään valitaan
+arvoksi *Normal*
+
+[[file:kuvat/hmi/Condition.png]]
+
+Nyt voidaan määrittää mitä tapahtuu kun käyttäjä painaa ToggleButton-nappia ja
+napin tila on joko *Normal*  tai *Active*. Raahataan vasemmasta valikosta
+*WriteToSymbol* sekä IF-ehdon THEN-kenttään, että ELSE-lenttään.
+
+Tehdään molempien /Write To Symbol/-actionien ensimmäiseen kenttään linkitys
+*bKytkin* muuttujaan klikkaamalla kentän vieressä olevaa neliötä, valitsemalla
+/Create data binding/ ja etsimällä muuttuja.
+
+[[file:kuvat/hmi/Condition.png]]
+
+Tämän jälkeen valitaan ELSE-ehdon /Write to Symbol/-actionin toiseen kenttään
+(value) arvoksi /True/
+
+[[file:kuvat/hmi/ToggleButtonAction.png]]
+
+Viimeisenä tehdään linkitys *bMerkkivalo* muuttujan ja ellipsin täyttövärin välille.
+
 # Linkitetään ellipsin väri bMerkkilamppu muuttujaan
 ** Käyttöliittymän testaus
-# Live View
-# Seurataan
+Käyttöliittymän testaus onnistuu *Live View* ominaisuuden avulla. Ensin
+varmistetaan että PLC-projekti on käynnissä kohdan /Simulointi/ ohjeiden mukaan.
+Tämän jälkeen klikataan *L*-ikonia käyttöliittymäeditorin oikeassa laidassa.
+
+[[file:kuvat/hmi/LiveView.png]]
+
+Käyttöliittymä aukeaa uuteen ikkunaan jossa sitä voidaan testata. Kun
+*Kytkin*-nappi painetaan ensin ala-asentoon, ja sen jälkeen painetaan
+*Painonappi*-nappia, muuttuu ellipsin väri vihreäksi.
+
+file:kuvat/hmi/Testaus.png
 
 ** Käyttöliittymän julkaisu
 # Publish
 
 # Laitteelle
 # Zip-paketti
+
 * I/O mäppäys laitteisiin
 ** EtherCat laitteiden lisääminen
 ** Terminaalimoduulien lisääminen
