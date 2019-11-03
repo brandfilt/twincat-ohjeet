@@ -475,7 +475,23 @@ Tämän jälkeen valitaan ELSE-ehdon /Write to Symbol/-actionin toiseen kenttä�
 
 [[file:kuvat/hmi/ToggleButtonAction.png]]
 
-Viimeisenä tehdään linkitys *bMerkkivalo* muuttujan ja ellipsin täyttövärin välille.
+Viimeisenä tehdään linkitys *bMerkkivalo* muuttujan ja ellipsin täyttövärin
+välille. Ellipsin tapauksessa linkitys PLC-projektin muuttujaan on erilainen,
+koska sen sijaan että käyttöliittymästä muutettaisiin muuttujan tilaa, muutetaan
+käyttöliittymää kun muuttujan arvo muuttuu.
+
+Ensimmäisenä täytyy lisätä ellipsin /Properties/-ikkunan /Show Events/-välilehdelle
+linkitys *bMerkkivalo*-muuttujaan. /Show
+Events/-välilehti löytyy salamaikonin takaa. Linkitys tehdään kohtaan /Custom/
+valitsemalla /Create data binding/ ensimmäisen kentän vieressä olevasta neliöstä
+aukeavasta valikosta.
+[[file:kuvat/hmi/EllipseMerkkivaloBinding.png]]
+
+Nyt voidaan muuttujan arvon muuttumiseen lisätä toiminto. Se tapahtuu avaamalla
+/Actions and Conditions/-ikkuna kynäikonista. Toiminnot määritellään samaan
+tapaan kuin ToggeButton-napin tapauksessa mutta nyt muutetaankin *TciHmiEllipse::FillColor*-arvoa.
+
+[[file:kuvat/hmi/FillColorValmis.png]]
 
 # Linkitetään ellipsin väri bMerkkilamppu muuttujaan
 ** Käyttöliittymän testaus
@@ -500,6 +516,8 @@ file:kuvat/hmi/Testaus.png
 * I/O mäppäys laitteisiin
 ** EtherCat laitteiden lisääminen
 ** Terminaalimoduulien lisääminen
+
+* Testaus koulun laitteistolla
 
 * Ongelmatilanteet
 ** Virtuaalikoneet
