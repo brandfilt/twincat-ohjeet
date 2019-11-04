@@ -13,7 +13,9 @@ ohjelmointiympäristön päälle.
 
 TwinCat on jaettu komponentteihin joista *TC3 Engineering* on sisältää
 logiikoiden konfigurointi, ohjelmointi ja debuggaus ominaisuudet. Muiden
-komponenttien avulla kehitysympäristöön voidaan lisätä ominaisuuksia.
+komponenttien avulla kehitysympäristöön voidaan lisätä ominaisuuksia. Tässä
+oppaassa käytetään myös *TC3 HMI Engineering* komponenttia, jonka avulla voidaan
+luoda käyttöliittymiä PLC-projekteille.
 * Asennus ja ensimmäinen käynnistys
 ** Vaatimukset
 - Windows XP tai uudempi
@@ -378,10 +380,13 @@ with online change*, tällöin ohjelmaan tehdyt muutokset kopioidaan PLC:lle.
 
 
 * TwinCat 3 HMI
-TwinCat 3 HMI on Beckhoffin työkalu käyttöliittymien luomiseen. HMI:llä
+TwinCat 3 HMI on Beckhoffin työkalu modernien PLC-käyttöliittymien luomiseen. HMI:llä
 tehdyt käyttöliittymät ovat HTML5-pohjaisia ja niitä voi käyttää normaalilla
 Internet-selaimella. Käyttöliittymää varten luodaan oma HMI projektinsa, joka
 voidaan halutessa luoda PLC-projektin rinnalle tai omaan kansioonsa.
+
+Ennen TwinCAT HMI projektin luomista täytyy TwinCAT 3 HMI Engineering
+komponentti olla asennettuna.
 
 # Asiaa PLC HMIstä?
 ** HMI projektin luominen ja muokkaaminen
@@ -508,11 +513,6 @@ Käyttöliittymä aukeaa uuteen ikkunaan jossa sitä voidaan testata. Kun
 file:kuvat/hmi/Testaus.png
 
 ** Käyttöliittymän julkaisu
-# Publish
-
-# Laitteelle
-# Zip-paketti
-** Käyttöliittymän julkaisu
 TwinCAT HMI käyttöliittymän voi julkaista, eli siirtää kohdelaitteistolle,
 valitsemalla /Publish to TwinCAT HMI Server/ HMI projektin valikosta.
 
@@ -526,12 +526,15 @@ profiiliin voidaan tarvittaessa määrittää käyttäjänimi ja salasana sekä 
 
 [[file:kuvat/hmi/Publish.png]]
 
+Kun profiili on luotu voidaan käyttöliittymä julkaista HMI palvelimelle
+klikkaamalla /Publish/.
+
 * I/O mäppäys laitteisiin
 ** EtherCat laitteiden lisääminen
 ** Terminaalimoduulien lisääminen
 
-* Testaus koulun laitteistolla
-...
+
+* Testaus PLC-laitteistolla
 
 * Ongelmatilanteet
 ** Virtuaalikoneet
