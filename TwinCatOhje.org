@@ -172,7 +172,7 @@ bMerkkivalo, bKytkin ja bPainonappi GVL-tiedostoon.
 VAR_GLOBAL
     bKytkin AT %I* : BOOL;
     bPainonappi AT %I* : BOOL;
-    bMerkivalo AT %Q* : BOOL;
+    bMerkkivalo AT %Q* : BOOL;
 END_VAR
 #+END_SRC
 
@@ -512,12 +512,26 @@ file:kuvat/hmi/Testaus.png
 
 # Laitteelle
 # Zip-paketti
+** Käyttöliittymän julkaisu
+TwinCAT HMI käyttöliittymän voi julkaista, eli siirtää kohdelaitteistolle,
+valitsemalla /Publish to TwinCAT HMI Server/ HMI projektin valikosta.
+
+[[file:kuvat/hmi/Publish.png]]
+
+Kun julkaisua tehdään ensimmäistä kertaa, tehdään julkaisuprofiili, joka
+sisältää julkaisuun tarvittavat asetukset. Profiiliin tallennetaan kohdelaitteen
+IP-osoite ja portti, jotka voidaan syöttää joko manuaalisesti tai hakea
+automaattisesti, jos kohdelaite on lähiverkossa. IP-osoitteen ja portin lisäksi
+profiiliin voidaan tarvittaessa määrittää käyttäjänimi ja salasana sekä HTTPS-asetukset.
+
+[[file:kuvat/hmi/Publish.png]]
 
 * I/O mäppäys laitteisiin
 ** EtherCat laitteiden lisääminen
 ** Terminaalimoduulien lisääminen
 
 * Testaus koulun laitteistolla
+...
 
 * Ongelmatilanteet
 ** Virtuaalikoneet
