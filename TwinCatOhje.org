@@ -457,13 +457,13 @@ valikosta *Condition* ja raahataan se oikealla olevaan tyhjään tilaan.
 *Condition*-actioni luo if-ehdon, jolla voidaan tarkistaa muuttujan arvo ja sen
 jälkeen suorittaa toisia actioneita arvosta riippuen.
 
-[[file:kuvat/hmi/Condition.png]]
+[[file:kuvat/hmi/Condition1.png]]
 
 Tämän jälkeen valitaan vasemmasta listasta ToggleButtonin *ToggleState* arvo, ja
 raahataan se IF-ehdon ensimmäiseen kenttään. Kolmanteen kenttään valitaan
 arvoksi *Normal*
 
-[[file:kuvat/hmi/Condition.png]]
+[[file:kuvat/hmi/Condition2.png]]
 
 Nyt voidaan määrittää mitä tapahtuu kun käyttäjä painaa ToggleButton-nappia ja
 napin tila on joko *Normal*  tai *Active*. Raahataan vasemmasta valikosta
@@ -473,7 +473,7 @@ Tehdään molempien /Write To Symbol/-actionien ensimmäiseen kenttään linkity
 *bKytkin* muuttujaan klikkaamalla kentän vieressä olevaa neliötä, valitsemalla
 /Create data binding/ ja etsimällä muuttuja.
 
-[[file:kuvat/hmi/Condition.png]]
+[[file:kuvat/hmi/Condition3.png]]
 
 Tämän jälkeen valitaan ELSE-ehdon /Write to Symbol/-actionin toiseen kenttään
 (value) arvoksi /True/
@@ -516,7 +516,7 @@ file:kuvat/hmi/Testaus.png
 TwinCAT HMI käyttöliittymän voi julkaista, eli siirtää kohdelaitteistolle,
 valitsemalla /Publish to TwinCAT HMI Server/ HMI projektin valikosta.
 
-[[file:kuvat/hmi/Publish.png]]
+[[file:kuvat/hmi/Publish1.png]]
 
 Kun julkaisua tehdään ensimmäistä kertaa, tehdään julkaisuprofiili, joka
 sisältää julkaisuun tarvittavat asetukset. Profiiliin tallennetaan kohdelaitteen
@@ -524,7 +524,7 @@ IP-osoite ja portti, jotka voidaan syöttää joko manuaalisesti tai hakea
 automaattisesti, jos kohdelaite on lähiverkossa. IP-osoitteen ja portin lisäksi
 profiiliin voidaan tarvittaessa määrittää käyttäjänimi ja salasana sekä HTTPS-asetukset.
 
-[[file:kuvat/hmi/Publish.png]]
+[[file:kuvat/hmi/Publish2.png]]
 
 Kun profiili on luotu voidaan käyttöliittymä julkaista HMI palvelimelle
 klikkaamalla /Publish/.
