@@ -1,3 +1,5 @@
+#+LATEX_CLASS: tufte-book
+#+LATEX_CLASS_OPTIONS: [a4paper]
 #+TITLE: TwinCat 3 Opas
 #+STARTUP: showall
 * Mikä TwinCat?
@@ -16,6 +18,12 @@ logiikoiden konfigurointi, ohjelmointi ja debuggaus ominaisuudet. Muiden
 komponenttien avulla kehitysympäristöön voidaan lisätä ominaisuuksia. Tässä
 oppaassa käytetään myös *TC3 HMI Engineering* komponenttia, jonka avulla voidaan
 luoda käyttöliittymiä PLC-projekteille.
+
+** Komponentit
+
+* Termit
+
+
 * Asennus ja ensimmäinen käynnistys
 ** Vaatimukset
 - Windows XP tai uudempi
@@ -37,8 +45,11 @@ Kehityskoneen lisenssin voi aktivoida klikkaamalla "Activate 7 Days Trial
 License..." ja täyttämällä kysytty koodi.
 
 * Ensimmäinen PLC projekti
+** TwinCAT projekti
+kuvausta..
+
 ** Uusi projekti
-Uusi PLC projekti aloitetaan valitsemalla Visual Studio File valikosta New
+Uusi TwinCat projekti aloitetaan valitsemalla Visual Studio File valikosta New
 Project.
 
 #+ATTR_HTML: :width="300px"
@@ -50,13 +61,14 @@ projektille nimi ja sijainti ja luodaan projekti klikkaamalla OK.
 #+ATTR_HTML: width="300"
 [[file:kuvat/UusiProjekti03.png]]
 ** PLC projekti
-Kun TwinCat projekti on luotu, täytyy siihen vielä lisästä PLC projekti,
+Kun TwinCat projekti on luotu, täytyy siihen vielä lisätä PLC projekti,
 jotta päästään ohjelmoimaan. TwinCatissä jokainen PLC projekti vastaa
 "virtuaalista" logiikkakontrolleria. PLC-projekti sisältää ohjelmat, muuttujat
 ja käyttöliittymät jotka logiikalle ladataan.
 
 PLC-projektin lisäys tapahtuu klikkaamalla hiiren oikealla
 puunäkymän kohtaa PLC, ja valitsemalla Add New Item.
+#+CAPTION: PLC-projektin lisäys TwinCAT projektiin
 [[file:kuvat/LisaaPLCProjekti01.png]]
 
 Avautuvasta ikkunasta valitaan projektityypiksi Standard PLC Project, annetaan projektille nimi ja
@@ -84,7 +96,7 @@ ST on tekstipohjainen ja muistuttaa eniten korkeamman tason ohjelmointikieliä
 kuten (PHP, Python tai C). ST on myös
 Beckhoffin suosittelema PLC ohjelmointitapa.
 ** PLC ohjelman lisäys
-Kun projektiin lisää PLC projektin, luo TwinCat automaattisesti MAIN-ohjelman
+Kun TwinCAT projektiin lisää PLC projektin, luo TwinCat automaattisesti MAIN-ohjelman
 PLC-projektin kansioon POU. MAIN-ohjelma on ST-ohjelma, joka on oletuksena
 tyhjä. Yksinkertaisen ohjelman voi toteuttaa halutessaan suoraan
 MAIN-tiedostoon, mutta monimutkaisemmat logiikkaohjelmat kannattaa jakaa
@@ -394,8 +406,12 @@ Avoinna olevaan TwinCat projektiin (solution) voidaan lisätä HMI-projekti
 klikkaamala oikealla ja valitsemalla *Add->New Project*. Avautuvasta ikkunasta
 valitaan TwinCat HMI ja HMI Project.
 
+**kuva**
+
 Käyttöliittymä voidaan muokata joko käyttäen ns. WYSIWYG (What You See Is What You Get)
-editoria tai suoraan muokkaamalla HTML koodia.
+editoria tai suoraan muokkaamalla HTML koodia. Käyttöliittymän luominen
+peruskomponenteilla on helppoa ja seuraavaksi käymme läpi käyttöliittymän
+luomisen edellä tehdyille PLC-ohjelmille.
 
 ** Käyttöliittymän komponentit
 Käyttöliittymän peruskomponentit löytyvät *Toolbox* ikkunasta (ikkunan saa
@@ -403,7 +419,10 @@ tarvittaessa näkyviin *View* valikon alta). TwinCat HMI sisältää noin
 parikymmentä komponenttia yksinkertaisista tekstikentistä aina monimutkaisempiin
 datan visualisointikomponentteihin asti.
 
-[[file:kuvat/hmi/HMIToolbox.png]]
+\begin{marginfigure}
+\includegraphics[width=.8\linewidth]{kuvat/hmi/HMIToolbox.png}
+\caption{Peruskomponentit löytyvät Toolbox-ikkunasta}
+\end{marginfigure}
 
 Kun jokin komponentti on valittuna voidaan sen ominaisuuksia muuttaa
 *Properties* ikkunan alta. *Properties* ikkunan *Events* välilehdeltä
@@ -504,7 +523,12 @@ Käyttöliittymän testaus onnistuu *Live View* ominaisuuden avulla. Ensin
 varmistetaan että PLC-projekti on käynnissä kohdan /Simulointi/ ohjeiden mukaan.
 Tämän jälkeen klikataan *L*-ikonia käyttöliittymäeditorin oikeassa laidassa.
 
-[[file:kuvat/hmi/LiveView.png]]
+#+BEGIN_EXPORT latex
+\begin{marginfigure}
+\includegraphics[width=.5\linewidth]{kuvat/hmi/LiveView.png}
+\end{marginfigure}
+#+END_EXPORT
+
 
 Käyttöliittymä aukeaa uuteen ikkunaan jossa sitä voidaan testata. Kun
 *Kytkin*-nappi painetaan ensin ala-asentoon, ja sen jälkeen painetaan
@@ -529,12 +553,12 @@ profiiliin voidaan tarvittaessa määrittää käyttäjänimi ja salasana sekä 
 Kun profiili on luotu voidaan käyttöliittymä julkaista HMI palvelimelle
 klikkaamalla /Publish/.
 
-* I/O mäppäys laitteisiin
-** EtherCat laitteiden lisääminen
-** Terminaalimoduulien lisääminen
-
 
 * Testaus PLC-laitteistolla
+** I/O mäppäys laitteisiin
+*** EtherCat laitteiden lisääminen
+*** Terminaalimoduulien lisääminen
+** Laitteiston skannaus
 
 * Ongelmatilanteet
 ** Virtuaalikoneet
