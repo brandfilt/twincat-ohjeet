@@ -1,6 +1,13 @@
+#+OPTIONS: toc:nil
+#+HTML: <div class="toc">
+#+TOC: headlines 2
+#+HTML: </div>
 #+LATEX_CLASS: tufte-book
 #+LATEX_CLASS_OPTIONS: [a4paper]
-#+TITLE: TwinCat 3 Opas
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css" />
+
+
+#+HTML: <div class="container">
 #+STARTUP: showall
 * Mikä TwinCat?
 TwinCat (The Windows Control and Automation Technology) on Beckhoffin
@@ -414,15 +421,15 @@ peruskomponenteilla on helppoa ja seuraavaksi käymme läpi käyttöliittymän
 luomisen edellä tehdyille PLC-ohjelmille.
 
 ** Käyttöliittymän komponentit
-Käyttöliittymän peruskomponentit löytyvät *Toolbox* ikkunasta (ikkunan saa
-tarvittaessa näkyviin *View* valikon alta). TwinCat HMI sisältää noin
-parikymmentä komponenttia yksinkertaisista tekstikentistä aina monimutkaisempiin
-datan visualisointikomponentteihin asti.
-
 \begin{marginfigure}
 \includegraphics[width=.8\linewidth]{kuvat/hmi/HMIToolbox.png}
 \caption{Peruskomponentit löytyvät Toolbox-ikkunasta}
 \end{marginfigure}
+
+Käyttöliittymän peruskomponentit löytyvät *Toolbox* ikkunasta (ikkunan saa
+tarvittaessa näkyviin *View* valikon alta). TwinCat HMI sisältää noin
+parikymmentä komponenttia yksinkertaisista tekstikentistä aina monimutkaisempiin
+datan visualisointikomponentteihin asti.
 
 Kun jokin komponentti on valittuna voidaan sen ominaisuuksia muuttaa
 *Properties* ikkunan alta. *Properties* ikkunan *Events* välilehdeltä
@@ -583,3 +590,7 @@ Hyper-Threading pois päältä
 * Linkkejä
 ** Structured Text -ohjelmointi
 https://www.plcacademy.com/structured-text-tutorial.pdf
+
+
+
+#+HTML: </div>
