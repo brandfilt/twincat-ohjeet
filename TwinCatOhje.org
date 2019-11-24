@@ -2,47 +2,55 @@
 #+HTML: <div class="toc">
 #+TOC: headlines 2
 #+HTML: </div>
-#+LATEX_CLASS: tufte-book
-#+LATEX_CLASS_OPTIONS: [a4paper]
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css" />
 
 
 #+HTML: <div class="container">
 #+STARTUP: showall
-* Mikä TwinCat?
-TwinCat (The Windows Control and Automation Technology) on Beckhoffin
+* Mikä on TwinCAT?
+TwinCAT (The Windows Control and Automation Technology) on Beckhoffin
 automaatiojärjestelmien ydin.
 
-Se on PC-pohjainen ohjelmisto, joka muuttaa minkä tahansa PC:n tehokkaaksi automaatiojärjestelmien ohjaimeksi.
+Se on Windows PC-pohjainen ohjelmisto, joka muuttaa minkä tahansa PC:n tehokkaaksi automaatiojärjestelmien ohjaimeksi.
 
 TwinCat 3 on ohjelmiston uusin versio, jonka avulla automaatiohjelmointia
 voidaan tehdä IEC 61131-3 standardin mukaisten kielten lisäksi C ja C++
 ohjelmointikielillä. Twincat 3 on rakennettu Microsoftin Visual Studio
 ohjelmointiympäristön päälle.
 
-TwinCat on jaettu komponentteihin joista *TC3 Engineering* on sisältää
+TwinCat on jaettu komponentteihin joista *TC3 Engineering* sisältää
 logiikoiden konfigurointi, ohjelmointi ja debuggaus ominaisuudet. Muiden
 komponenttien avulla kehitysympäristöön voidaan lisätä ominaisuuksia. Tässä
 oppaassa käytetään myös *TC3 HMI Engineering* komponenttia, jonka avulla voidaan
 luoda käyttöliittymiä PLC-projekteille.
 
-** Komponentit
-
-* Termit
-
+Lisätieto eri TwinCAT komponenteista löytyy Beckhoffin sivuila.
+https://www.beckhoff.com/english.asp?twincat/twincat-3.htm
 
 * Asennus ja ensimmäinen käynnistys
 ** Vaatimukset
-- Windows XP tai uudempi
+- Windows 8 tai uudempi
 - Prosessori 1.6Ghz
 - 2GB RAM
 - 3GB kiintolevytilaa
+ 
+TwinCatin viralliset vaatimukset eivät ole kovin kummoiset mutta kannattaa ottaa
+huomioon että Visual Studio on suhteellisen raskas ohjelmisto, joten käytettävän
+koneen kannattaa olla tehokas.
+
 ** Asennus
+TwinCAT toimii osana Microsoftin Visual Studio ohjelmointiympäristöä, joten
+ensimmäisenä tulee asentaa Visual Studio. Oppaan kirjoitushetkellä Beckhoffin
+web-sivujen mukaan uusin Visual Studio version jota TwinCAT 3 tukee on 2017.
+
+Sitten TE1000 ja TE2000...
+
 Visual Studio 2017
-TwinCat 3 TE1000 XAE
-TwinCat 3 TE2000 HMI
+TwinCAT 3 TE1000 XAE
+TwinCAT 3 TE2000 HMI
+
 ** Lisenssi
-TwinCat 3 lisenssi on täysin ilmainen mutta sen lisenssi on luotava uudelleen 7
+TwinCAT 3 kehitysympäristön lisenssi on täysin ilmainen mutta se on aktivoitava uudelleen 7
 päivän välein. Lisenssin aktivointi tapahtuu TwinCat projektin SYSTEM kohdan alla
 olevasta License kohdasta.
 #+ATTR_HTML: width="300"
@@ -51,9 +59,17 @@ olevasta License kohdasta.
 Kehityskoneen lisenssin voi aktivoida klikkaamalla "Activate 7 Days Trial
 License..." ja täyttämällä kysytty koodi.
 
+TwinCAT ehdottaa lisenssin uudelleen aktivointia myös aina käynnistettäyssä, jos
+lisenssi on ehtinyt vanhentua.
+
+Beckhoffin automaatiolaitteet käyttävät samaa TwinCAT XARa (eXtended Automation
+Runtime) ympäristöä kuin kehitysympäristökin mutta niille täytyy lisenssi ostaa
+laitteen hankinnan yhteydessä.
+
 * Ensimmäinen PLC projekti
 ** TwinCAT projekti
-kuvausta..
+TwinCAT projekti on kokonaisuus, joka vosi sisältää TwinCATin eri komponenteilla
+tehtyjä aliprojekteja (PLC, HMI jne.), jotka liittyvät samaan kokonaisuuteen.
 
 ** Uusi projekti
 Uusi TwinCat projekti aloitetaan valitsemalla Visual Studio File valikosta New
@@ -287,6 +303,40 @@ Looppien (FOR, WHILE, REPEAT) käytössä on huomioitava, että PLC ohjelma
 itsessään on jo eräänlainen looppi, jota ajetaan asetuksiin määritetyllä
 skannausnopeudella. Looppaaminen odottaen jonkin tulon arvon muuttumista ei
 myöskään toimi, koska tällöin ohjelma jumiutuu looppin.
+
+
+*** Omien funktiolohkojen teko ja käyttö
+TwinCAT kehitysympäristössä on PLC-ohjelmien lisäksi mahdollista tehdä myös
+kokonaan omia funktiolohkoja, joita voi sen jälkeen käyttää osana ohjelmia.
+Funktiolohkojen tekeminen on hyvä tapa paloitella ohjelmat pienemmiksi ja
+yksinkertaisemmiksi palasiksi, jotta niiden toimintaa on helpompi ymmärtää.
+
+Funktiolohkoja lisätään samaan tapaan kuin uusia ohjelmiakin, mutta valitaan
+tyypiksi **Function Block**.
+
+[[file:kuvat/functions/addfunction.png]]
+
+Tämän jälkeen määritetään lohkon tulot ja lähdöt muuttujina ja tehdään lohkon
+toiminnallisuus samaan tapaan kuin minkä tahansa ohjelman.
+
+Esimerkkinä ohjelma, joka lukee lämpötila tietoa **INT** tyyppiseen muuttujaan
+**iLampotila**, ja asettaa **BOOL** tyyppisen lähdön tilan. Tässä lähtö
+asetetaan arvoon **TRUE** jos lämpötila nousee yli 25 asteen ja arvoon
+**FALSE**, kun lämpötila on jälleen laskenut alle 20 asteen.
+
+file:kuvat/functions/finalfunction.png
+
+Uutta funktiolohkoa käytetään esim. FDB-ohjelmoinnissa lisäämällä
+ensin **Box**-tyyppinen funktiolohko, ja valitsemalla sen tyypiksi luotu funktiolohko.
+
+file:kuvat/functions/using1.png
+
+Tämän jälkeen funktiolohkon tulot ja lähdöt täydentyvät ohjelmointinäkymään sitä
+voidaan käyttää kuten mitä tahansa muuta funktiolohkoa.
+
+file:kuvat/functions/using.png
+
+
 
 * Simulointi
 ** Projektin simuloiminen TwinCat runtimella
@@ -563,7 +613,7 @@ klikkaamalla /Publish/.
 
 * Testaus PLC-laitteistolla
 ** I/O mäppäys laitteisiin
-*** EtherCat laitteiden lisääminen
+*** EtherCAT laitteiden lisääminen
 *** Terminaalimoduulien lisääminen
 ** Laitteiston skannaus
 
@@ -579,9 +629,6 @@ Isolation ominaisuuden avulla. Core Isolation löytyy projektin SYSTEM osion alt
 Hyper-Threading pois päältä
 *** Hyper-Threading *pois päältä*
 *** Intel Virtualization Technology Extensions (VT-x) *päälle*
-
-* Ohjelman asetukset
-- Nopeuden säätö (cycle ticks jne.)
 
 * Lähteet
 ** https://download.beckhoff.com/download/document/catalog/TwinCAT_3_Booklet.pdf
