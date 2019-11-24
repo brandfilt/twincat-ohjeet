@@ -312,22 +312,22 @@ Funktiolohkojen tekeminen on hyvä tapa paloitella ohjelmat pienemmiksi ja
 yksinkertaisemmiksi palasiksi, jotta niiden toimintaa on helpompi ymmärtää.
 
 Funktiolohkoja lisätään samaan tapaan kuin uusia ohjelmiakin, mutta valitaan
-tyypiksi **Function Block**.
+tyypiksi *Function Block*.
 
 [[file:kuvat/functions/addfunction.png]]
 
 Tämän jälkeen määritetään lohkon tulot ja lähdöt muuttujina ja tehdään lohkon
 toiminnallisuus samaan tapaan kuin minkä tahansa ohjelman.
 
-Esimerkkinä ohjelma, joka lukee lämpötila tietoa **INT** tyyppiseen muuttujaan
-**iLampotila**, ja asettaa **BOOL** tyyppisen lähdön tilan. Tässä lähtö
-asetetaan arvoon **TRUE** jos lämpötila nousee yli 25 asteen ja arvoon
-**FALSE**, kun lämpötila on jälleen laskenut alle 20 asteen.
+Esimerkkinä ohjelma, joka lukee lämpötila tietoa *INT* tyyppiseen muuttujaan
+*iLampotila*, ja asettaa *BOOL* tyyppisen lähdön tilan. Tässä lähtö
+asetetaan arvoon *TRUE* jos lämpötila nousee yli 25 asteen ja arvoon
+*FALSE*, kun lämpötila on jälleen laskenut alle 20 asteen.
 
 file:kuvat/functions/finalfunction.png
 
 Uutta funktiolohkoa käytetään esim. FDB-ohjelmoinnissa lisäämällä
-ensin **Box**-tyyppinen funktiolohko, ja valitsemalla sen tyypiksi luotu funktiolohko.
+ensin *Box*-tyyppinen funktiolohko, ja valitsemalla sen tyypiksi luotu funktiolohko.
 
 file:kuvat/functions/using1.png
 
