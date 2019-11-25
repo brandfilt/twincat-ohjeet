@@ -327,7 +327,7 @@ Esimerkkinä ohjelma, joka lukee lämpötila tietoa *INT* tyyppiseen muuttujaan
 asetetaan arvoon *TRUE* jos lämpötila nousee yli 25 asteen ja arvoon
 *FALSE*, kun lämpötila on jälleen laskenut alle 20 asteen.
 
-[[file:kuvat/functions/finalfunction.png]]
+[[file:kuvat/functions/final.png]]
 
 Uutta funktiolohkoa käytetään esim. FDB-ohjelmoinnissa lisäämällä
 ensin *Box*-tyyppinen funktiolohko, ja valitsemalla sen tyypiksi luotu funktiolohko.
