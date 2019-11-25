@@ -372,10 +372,6 @@ Seuraavaksi kuvataan vaihe vaiheelta miten simulointi tehdään.
 
    [[file:kuvat/AktivoiKonfiguraatio2.jpg]]
 
-   Jos lisenssi on umpeutunut, täytyy se uusia tässä vaiheessa.
-
-   [[file:kuvat/AktivoiKonfiguraatio2.jpg]]
-
    TwinCat kysyy siirrytäänkö Run-moodiin vai pysytäänkö Config-moodissa.
    Vastataan tähän *OK*.
 
