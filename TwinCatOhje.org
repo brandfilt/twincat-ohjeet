@@ -1,11 +1,3 @@
-#+OPTIONS: toc:nil
-#+HTML: <div class="toc">
-#+TOC: headlines 2
-#+HTML: </div>
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css" />
-
-
-#+HTML: <div class="container">
 #+STARTUP: showall
 * Mikä on TwinCAT?
 TwinCAT (The Windows Control and Automation Technology) on Beckhoffin
@@ -18,7 +10,7 @@ voidaan tehdä IEC 61131-3 standardin mukaisten kielten lisäksi C ja C++
 ohjelmointikielillä. Twincat 3 on rakennettu Microsoftin Visual Studio
 ohjelmointiympäristön päälle.
 
-TwinCat on jaettu komponentteihin joista *TC3 Engineering* sisältää
+TwinCat on jaettu komponentteihin (/Functions/) joista *TC3 Engineering* sisältää
 logiikoiden konfigurointi, ohjelmointi ja debuggaus ominaisuudet. Muiden
 komponenttien avulla kehitysympäristöön voidaan lisätä ominaisuuksia. Tässä
 oppaassa käytetään myös *TC3 HMI Engineering* komponenttia, jonka avulla voidaan
@@ -29,32 +21,43 @@ https://www.beckhoff.com/english.asp?twincat/twincat-3.htm
 
 * Asennus ja ensimmäinen käynnistys
 ** Vaatimukset
+TwinCatin viralliset vaatimukset eivät ole kovin kummoiset mutta kannattaa ottaa
+huomioon että Visual Studio on suhteellisen raskas ohjelmisto, joten käytettävän
+koneen kannattaa olla tehokas.
+
 - Windows 8 tai uudempi
 - Prosessori 1.6Ghz
 - 2GB RAM
 - 3GB kiintolevytilaa
  
-TwinCatin viralliset vaatimukset eivät ole kovin kummoiset mutta kannattaa ottaa
-huomioon että Visual Studio on suhteellisen raskas ohjelmisto, joten käytettävän
-koneen kannattaa olla tehokas.
 
 ** Asennus
 TwinCAT toimii osana Microsoftin Visual Studio ohjelmointiympäristöä, joten
 ensimmäisenä tulee asentaa Visual Studio. Oppaan kirjoitushetkellä Beckhoffin
 web-sivujen mukaan uusin Visual Studio version jota TwinCAT 3 tukee on 2017.
 
-Sitten TE1000 ja TE2000...
+Visual Studion voi ladata Microsoftin sivuilta osoitteesta https://visualstudio.microsoft.com/
+Visual Studion Community version lataus ja käyttö on täysin ilmaista. Oppaan
+kirjoitushetkellä uusin Visual Studio oli versio 2019 jonka saa ladattua ilman
+rekisteröintiä. Vanhempien versioiden, kuten oppaassa käytetyn version 2017,
+lataaminen vaatii kuitenkin rekisteröitymisen.
 
-Visual Studio 2017
-TwinCAT 3 TE1000 XAE
-TwinCAT 3 TE2000 HMI
+Kun visual studio on asennettu, voidaan asentaa halutut TwinCAT komponentit.
+*TE1000 XAE* on ainut vaadittu komponentti, jos halutaan vain kehittää
+automaatioohjelmia, mutta käyttöliittymien kehittämiseen kannattaa asentaa myös
+*TE2000 HMI*. Molempien lataus onnistuu Beckhoffin sivuilta https://www.beckhoff.com/english.asp?download/default.htm
+
+*TE1000 XAE* asennuksen aikana voidaan valita minkä Visual Studio asennusten
+kanssa TwinCAT integroidaan.
+
+[[file:kuvat/installvs.png]]
 
 ** Lisenssi
 TwinCAT 3 kehitysympäristön lisenssi on täysin ilmainen mutta se on aktivoitava uudelleen 7
 päivän välein. Lisenssin aktivointi tapahtuu TwinCat projektin SYSTEM kohdan alla
 olevasta License kohdasta.
 #+ATTR_HTML: width="300"
-[[file:kuvat/Lisenssi01.png]]
+[[file:kuvat/Lisenssi02.png]]
 
 Kehityskoneen lisenssin voi aktivoida klikkaamalla "Activate 7 Days Trial
 License..." ja täyttämällä kysytty koodi.
@@ -638,6 +641,3 @@ Hyper-Threading pois päältä
 ** Structured Text -ohjelmointi
 https://www.plcacademy.com/structured-text-tutorial.pdf
 
-
-
-#+HTML: </div>
