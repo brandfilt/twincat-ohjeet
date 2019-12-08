@@ -611,10 +611,14 @@ klikkaamalla /Publish/.
 
 
 * Testaus PLC-laitteistolla
-** I/O mäppäys laitteisiin
+Kun PLC-projektia halutaan testata varsinaisella laitteistolla, tai kun projekti
+halutaan viedä tuotantojärjestelmään, täytyy laitteisto ensin lisätä TwinCAT
+projektiin. Laitteiston voi lisätä joko manuaalisesti tai skannaamalla.
+** Laitteiston lisäys manuaalisesti TwinCAT projektiin
 *** EtherCAT laitteiden lisääminen
+
 *** Terminaalimoduulien lisääminen
-** Laitteiston skannaus
+** Laitteiston lisäys skannaamalla
 
 * Ongelmatilanteet
 ** Virtuaalikoneet
