@@ -615,7 +615,22 @@ Kun PLC-projektia halutaan testata varsinaisella laitteistolla, tai kun projekti
 halutaan viedä tuotantojärjestelmään, täytyy laitteisto ensin lisätä TwinCAT
 projektiin. Laitteiston voi lisätä joko manuaalisesti tai skannaamalla.
 ** Laitteiston lisäys manuaalisesti TwinCAT projektiin
-*** EtherCAT laitteiden lisääminen
+*** EtherCAT master laitteen lisääminen
+Ensimmäisenä tulee laitteistoon lisätä EtherCAT master, jonka alle muut laitteet
+lisätään. EtherCAT masterin voidaan ajatella vastaavan järjestelmän
+PLC-laitetta.
+
+Aloitetaan klikkaamalla projektipuussa I/O osion alla olevaan *Device* kohtaa
+hiiren oikealla, ja valitsemalla *Add New Item*.
+
+[[file:kuvat/Laitteet/adddevice.png]]
+
+Avautauvasta ikkunasta valitaan *EtherCAT master*.
+
+Tämän jälkeen aukeaa ikkuna *Device Found At*, johon voidaan vastata *Cancel*
+
+[[file:kuvat/Laitteet/devicefound.png]]
+
 
 *** Terminaalimoduulien lisääminen
 ** Laitteiston lisäys skannaamalla
