@@ -625,14 +625,48 @@ hiiren oikealla, ja valitsemalla *Add New Item*.
 
 [[file:kuvat/Laitteet/adddevice.png]]
 
-Avautauvasta ikkunasta valitaan *EtherCAT master*.
+Avautauvasta ikkunasta valitaan *EtherCAT master* ja annetaan laitteelle sopiva
+nimi. Tässä tapauksessa nimeksi annettiin CX5130.
+
+[[file:kuvat/Laitteet/devicename.png]]
 
 Tämän jälkeen aukeaa ikkuna *Device Found At*, johon voidaan vastata *Cancel*
 
 [[file:kuvat/Laitteet/devicefound.png]]
 
+Ennen terminaalimoduulien lisäämistä täytyy *EtherCAT master*-laitteen alle
+lisätä vielä *EK1200* ennen kuin muita terminaalimoduuleja pystytään lisäämään.
+Lisääminen tapahtuu klikkaamalla lisättyä *EtherCAT master*-laitetta hiiren
+oikealla, valitsemalla *Add New Item* ja valitsemalla avautuvasta valikosta
+*EK1200-5000 EtherCAT Power Supply (2A E-Bus)*
+
+[[file:kuvat/Laitteet/ek1200.png]]
+
+Tämän jälkeen laitepuu sisältää *EtherCAT master*-laitteen ja sen alla
+terminaalimoduulin *EK1200*.
+
+[[file:kuvat/Laitteet/ek1200added.png]]
+
+Muiden moduulien lisääminen nyt onnistuu samaan tapaan.
 
 *** Terminaalimoduulien lisääminen
+Lisätään seuraavaksi terminaalimoduulit
+- EL6731
+- EL1008
+- EL2008
+- EL3002
+- EL3201
+
+Lopuksi lisätään vielä *EK1110*-moduuli, eli väyläcoupler. Sen avulla voidaan
+järjestelmää jatkaa EtherCAT-kaapelilla.
+
+[[file:kuvat/Laitteet/ek1110.png]]
+
+Tässä vaiheessa laitepuu näyttää tältä.
+
+[[file:kuvat/Laitteet/ek1110added.png]]
+
+
 ** Laitteiston lisäys skannaamalla
 
 * Ongelmatilanteet
