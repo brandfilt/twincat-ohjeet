@@ -666,6 +666,30 @@ Tässä vaiheessa laitepuu näyttää tältä.
 
 [[file:kuvat/Laitteet/ek1110added.png]]
 
+Kun *EK1200* terminaalimoduulin alle on lisätty väyläcoupler *EK1110*, voidaan
+nyt *EtherCAT master* laitteen alle lisätä väyläcoupler johon EtherCAT-kaapeli
+viedään.
+
+Lisätään siis *EtherCAT master* laitteen alle *EK1100*.
+
+[[file:kuvat/Laitteet/ek1100.png]]
+
+Tämän jälkeen laitepuun tulisi näyttää ensin *EtherCAT master*-laite ja sen alla
+terminaalimoduulit *EK1200* ja *EK1100*
+
+[[file:kuvat/Laitteet/ek1100added.png]]
+
+*EK1100*-moduulin alle lisätään sen jälkeen loput I/O moduulit
+- EL1004
+- EL2634
+- EL4002
+
+Viimeiseksi lisätään vielä *EL9011 end cap* jollainen tulee laitta aina
+järjestelmän viimeiseksi moduuliksi.
+
+Lopullinen laitepuu näyttää tältä
+
+[[file:kuvat/Laitteet/final.png]]
 
 ** Laitteiston lisäys skannaamalla
 
