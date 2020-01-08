@@ -692,6 +692,8 @@ Lopullinen laitepuu näyttää tältä
 [[file:kuvat/Laitteet/final.png]]
 
 ** Laitteiston lisäys skannaamalla
+I/O-laitteisto voidaan lisätä myös automaattisesti skannaamalla verkkoon
+liitetty PLC-laitteisto. Tämä tapahtuu asettamalla TwinCAT Runtime ensin konfiguraatiotilaan.
 
 * Ongelmatilanteet
 ** Virtuaalikoneet
