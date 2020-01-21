@@ -693,7 +693,58 @@ Lopullinen laitepuu näyttää tältä
 
 ** Laitteiston lisäys skannaamalla
 I/O-laitteisto voidaan lisätä myös automaattisesti skannaamalla verkkoon
-liitetty PLC-laitteisto. Tämä tapahtuu asettamalla TwinCAT Runtime ensin konfiguraatiotilaan.
+liitetty PLC-laitteisto. Skannaamalla saadaan kaikki laitteet lisättyä kerralla
+,ja varmasti oikein, joten jos mahdollista kannattaa sitä käyttää. Skannauksen
+onnistumiseksi täytyy PLC-laitteiston olla samassa lähiverkossa kuin käytettävä tietokone.
+
+Skannaaminen tapahtuu asettamalla TwinCAT Runtime ensin konfiguraatiotilaan
+klikkaamalla työkalupalkista *Configuration Mode* ikonia.
+
+Sitten täytyy PLC-laitteseen muodostaa yhteys. Ensin valitaan yläpalkin *target*
+alasvetovalikosta **Choose Target System**, jolloin aukeaa laitteiden hakuun
+käytettävä ikkuna.
+
+[[file:kuvat/Skannaus/Connect01.png]]
+
+Laittiden hakuikkunasta valitaan **Search (Ethernet)**, jos PLC-laitteen
+IP-osoite ei ole tiedossa. Jos IP-osoite tiedetään voidaan se syöttää suoraan.
+
+[[file:kuvat/Skannaus/Connect02.png]]
+
+Kun PLC-laite on löydetty verkosta, ja se on valittu **target** valikosta,
+voidaan se skannata.
+
+Skannaus aloitetaan klikkaamalla projektipuun **I/O** kohdan alla kohtaa
+**Devices** hiiren oikealla ja valitsemalla **Scan**.
+
+[[file:kuvat/Skannaus/Scan01.png]]
+
+Kun skannaus lähiverkosta
+on tehty, näyttää TwinCAT mitä laitteita se löysi. Koulun laitteiston
+tapauksessa löydetään neljä laitetta.
+
+[[file:kuvat/Skannaus/Scan02.png]]
+
+**Device 1** on CX5130, eli PLC laite jolla ohjelmat ajetaan.
+**Device 2** on EK1110, eli EtherCAT coupler jonka avulla järjestelmää voidaan
+jatkaa EtherCAT kaapelilla.
+**Device 3** on EK1100, eli EtherCAT coupler jota käytetään EtherCAT kaapelin
+toisessa päässä järjestelmää jatkettaessa.
+**Device 5** on EL6731, eli ProfiBUS liitäntä moduuli jolla järjestelmää voidaan
+jatkaa ProfiBUS väylään.
+
+Näistä lisätään TwinCAT projektiin laitteet 1 ja 5 valitsemalla ne ja
+klikkaamalla **OK**. Vastataan vielä **OK** kun TwinCAT kysyy halutaanko myös moduulit skannata
+(kuva?). Tämän jälkeen projektipuuhun, kohtaan **Devices**, ilmestyy
+kolme laitetta.
+
+[[file:kuvat/Skannaus/Scan03.png]]
+
+**EL6731** ProfiBUS moduulin COM-portti näkyy siis erillisenä laitteena.
+
+** Muuttujien linkittäminen tuloihin ja lähtöihin
+Kun laitteisto on lisätty projektiin, voidaan ohjelmissa käytetyt muuttujat
+linkittää laitteiston tuloihin ja lähtöihin.
 
 * Ongelmatilanteet
 ** Virtuaalikoneet
