@@ -744,7 +744,25 @@ kolme laitetta.
 
 ** Muuttujien linkittäminen tuloihin ja lähtöihin
 Kun laitteisto on lisätty projektiin, voidaan ohjelmissa käytetyt muuttujat
-linkittää laitteiston tuloihin ja lähtöihin.
+linkittää laitteiston tuloihin ja lähtöihin. Linkittäminen voidaan tehdä joko moduulin tietojan kautta laitepuusta, tai
+PLC-projektin alta.
+
+PLC-projektin alta linkittäminen tapahtuu aukaisemalla **Instance** kohta, ja
+edelleen sen alta joko **PlcTask Inputs** tai **PlcTask Outputs** riippuen siitä
+ollaanko linkittämässä tuloa vai lähtöä. Sen jälkeen klikataan haluttua
+muuttujaa oikealla ja valitaan **Change Link**
+
+[[file:kuvat/Skannaus/Link02.png]]
+
+Laitepuusta linkittäminen tapahtuu aukaisemalla halutun moduulin alta ensin
+tulo/lähtö (esim. Channel 1) ja sen jälkeen klikkaamalla **Output** tai
+**Input** kohtaa oikealla ja valitsemalla **Change Link**.
+
+[[file:kuvat/Skannaus/Link03.png]]
+
+Molemmilla tavoilla aukeaa linkitysikkuna josta voidaan valita joko haluttua
+tulo/lähtö tai haluttu muuttuja, johon linkitetään.
+
 
 * Ongelmatilanteet
 ** Virtuaalikoneet
